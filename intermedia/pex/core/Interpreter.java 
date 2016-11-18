@@ -1,0 +1,76 @@
+package pex.core;
+
+public class Interpreter{
+	private List<Program> _programList;
+
+
+	/**
+	 * default constructor
+	 * @param  app app
+	 */
+	public Interpreter (AppIO app){
+	
+	}
+
+
+
+
+	/**
+	 * Set's Literal value to Identifier id in given Interpreter 
+	 * @param id    Identifier to which value will be given
+	 * @param value value to be given to the Identifier id
+	 */
+	public void setIdentifierValue(Identifier id, Literal value){
+	
+	}
+
+
+
+
+	/**
+	 * Finds given's Id value
+	 * @param  id Identifier which the value belongs to
+	 * @return    value of given Indentifier
+	 */
+	public Literal getIdentifierValue(Identifier id){
+
+	}
+
+
+
+
+
+	/**
+	 * adds a program to this interpreter
+	 * @param program to be added to interpreter
+	 */
+	public void addProgram(Program program){
+
+	}
+
+
+
+
+
+	/**
+	 * finds the Program who's given name belongs to
+	 * @param  name name of the program
+	 * @return      owner of the name
+	 */
+	public Program getProgram(String name){
+
+	}
+
+
+
+
+
+	/**
+	 * gets the app which the interpreter was created on
+	 * @return the app which the interpreter was created on
+	 */
+	public AppIO getAppIO(){
+
+	}
+
+}
