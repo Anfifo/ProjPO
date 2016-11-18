@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 //FIXME import used core classes
+import pex.core.InterpreterHandler;
+
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
 import pt.utl.ist.po.ui.Form;
@@ -13,11 +15,11 @@ import pt.utl.ist.po.ui.InvalidOperation;
 /**
  * Open existing interpreter.
  */
-public class Open extends Command</*FIXME Receiver class*/> {
+public class Open extends Command<InterpreterHandler> {
     /**
      * @param receiver
      */
-    public Open(/*FIXME core class*/ receiver) {
+    public Open(InterpreterHandler receiver) {
         super(Label.OPEN, receiver);
     }
 

@@ -1,6 +1,6 @@
 package pex.app.main;
 
-//FIXME import receiver(s) class(es)
+import pex.core.InterpreterHandler;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Menu;
@@ -13,9 +13,10 @@ import pt.utl.ist.po.ui.Menu;
 public class MainMenu extends Menu {
 
     /**
-     * @param receiver
+     * Creates menu with avaible commands
+     * @param receiver the Class to which the menu acts on
      */
-    public MainMenu(/*FIXME Receiver class*/ receiver) {
+    public MainMenu(InterpreterHandler receiver) {
         super(Label.TITLE,
               new Command<?>[] { //
                   new New(receiver), //
