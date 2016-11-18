@@ -27,8 +27,10 @@ public class App implements AppIO {
      * @param str the string to write
      **/
     public void println(String str) {
-        // add code here
-    }
+        Display display = new Display();
+
+        display.add(str);
+        display.display();
 
     /**
      * Reads a string inputed by the user.
@@ -36,7 +38,10 @@ public class App implements AppIO {
      * @return the string written by the user.
      **/
     public String readString() {
-        // add code here
+        Form f = new Form();
+        InputString str = new InputString(f, null);
+        f.parse();
+        return str;
     }
 
     /**
@@ -45,7 +50,10 @@ public class App implements AppIO {
      * @return the number written by the user.
      **/
     public int readInteger() {
-        // add code here
+        Form f = new Form();
+        InputInteger n  = new InputInteger(f, null);
+        f.parse();
+        return n;
     }
 
     /**
@@ -64,7 +72,7 @@ public class App implements AppIO {
             }
         }
         
-        MainMenu menu = new MainMenu(/* Receiver Entity*/);
+        MainMenu menu = new MainMenu(InterpreterHandler receiver);
         menu.open();
     }
 }
