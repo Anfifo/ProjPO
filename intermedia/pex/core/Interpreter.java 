@@ -96,7 +96,7 @@ public class Interpreter{
 			if (name.equals(_programList.get(i).getProgramName())
 				return _programList.get(i);
 
-		/* lancar erro */
+		return null;
 	}
 
 
