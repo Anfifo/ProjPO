@@ -3,7 +3,20 @@ package pex.core;
 public class Program{
 	private String _name;
 
-	private List<Identifier> _indentifiers;
+	private InterpreterHandle _interpreter;
+
+	private List<Expression> _expressions;
+
+	/**
+	 * Default constructor
+	 * @param  interpreter interpreter owner of the program
+	 * @param  name program's name
+	 */
+	public Program(Interpreter interpreter, String name){
+		_interpreter = interpreter;
+		_expression = new ArrayList <Expression>();
+		_name = name;
+	}
 
 
 
@@ -14,7 +27,7 @@ public class Program{
 	 * @param expression expression to be added to given index
 	 */
 	public void add(int idx, Expression expression){
-
+		expressions.add(idx, expression);
 	}
 
 
@@ -27,7 +40,7 @@ public class Program{
 	 * @param expression expression that will replace in given idx position
 	 */
 	public void replace(int idx, Expression expression){
-
+		expressions.set(idx, expression);
 	}
 
 
@@ -39,7 +52,7 @@ public class Program{
 	 * @param value that's going to be given to Identifier (id)
 	 */
 	public void setIdentifierValue(Identifier id, Literal value){
-
+		_interpreter.getInterpreter().setIdentifierValue(id, value);
 	}
 
 
@@ -61,7 +74,13 @@ public class Program{
 	 * @return the string representation of the program
 	 */
 	public String getAsText(){
+		int size = _expressions.size();
 
+		int i;
+
+		for ( i = 0; i < size; i++){
+			_expressions.getAsText();
+		}
 	}
 
 
@@ -74,7 +93,11 @@ public class Program{
 	 */
 	public Program getProgram(String name){
 
+		return _interpreter.getInterpreter().getProgram(name);
 	}
 
 
+	public String getProgramName(){
+		return _name;
+	}
 }
