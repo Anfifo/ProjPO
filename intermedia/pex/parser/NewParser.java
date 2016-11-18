@@ -26,9 +26,9 @@ public class NewParser {
         _tokenizer.eolIsSignificant(false);
     }
 
-    public Program parseFile(String fileName, String programName /* may need aditional parameters */) throws BadSourceException, BadNumberException, InvalidExpressionException, 
+    public Program parseFile(String fileName, String programName, InterpreterHandle interpreter, List<Expression> expressions ) throws BadSourceException, BadNumberException, InvalidExpressionException, 
                                                                                                   MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
-        _program = new Program(programName /* may need additional parameters */);
+        _program = new Program(programName, interpreter, expressions);
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);
@@ -78,7 +78,7 @@ public class NewParser {
                 return new StringLiteral(_tokenizer.sval);
 
             case StreamTokenizer.TT_WORD:
-                return new Identifier(_tokenizer.sval /* may need aditional parameters */);
+                return new Identifier(_tokenizer.sval);
 
             case '(':
                 Expression exp = parseCompositeExpression();
