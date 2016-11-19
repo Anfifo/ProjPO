@@ -35,7 +35,7 @@ public class EditProgram extends Command<InterpreterHandler> {
         Display display = new Display();
 
         name = inS.value();
-        Program program = entity().getInterpreter().getProgram();
+        Program program = entity().getInterpreter().getProgram(name);
         
         if ( program == null){
             display.add(noSuchProgram(name));
@@ -45,11 +45,8 @@ public class EditProgram extends Command<InterpreterHandler> {
 
         /* Program Manipulation Menu */
         else {
-            
-            
-            Command <?> [] commands = {
-                /*
-            };
+            Menu programManipulationMenu = new EvaluatorMenu(program);
+            programManipulationMenu.Open(); 
         }
 
     }
