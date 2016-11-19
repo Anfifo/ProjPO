@@ -3,7 +3,7 @@ package pex.core;
 public class Program{
 	private String _name;
 
-	private InterpreterHandle _interpreter;
+	private Interpreter _interpreter;
 
 	private List<Expression> _expressions;
 
@@ -27,7 +27,7 @@ public class Program{
 	 * @param expression expression to be added to given index
 	 */
 	public void add(int idx, Expression expression){
-		expressions.add(idx, expression);
+		_expressions.add(idx, expression);
 	}
 
 
@@ -40,7 +40,7 @@ public class Program{
 	 * @param expression expression that will replace in given idx position
 	 */
 	public void replace(int idx, Expression expression){
-		expressions.set(idx, expression);
+		_expressions.set(idx, expression);
 	}
 
 
@@ -75,12 +75,15 @@ public class Program{
 	 */
 	public String getAsText(){
 		int size = _expressions.size();
+		String text = "";
 
 		int i;
 
 		for ( i = 0; i < size; i++){
-			_expressions.getAsText();
+			text+=_expressions.getAsText();
 		}
+
+		return text;
 	}
 
 

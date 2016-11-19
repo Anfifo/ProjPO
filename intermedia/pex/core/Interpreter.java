@@ -14,7 +14,7 @@ import pex.core.expression.literal.Literal;
 public class Interpreter{
 	private List<Program> _programList;
 	
-	private List<Identifier> _identifierList;
+	private Map<String, Identifier> _identifiersMap;
 	
 	private AppIO _app;
 	
@@ -27,19 +27,13 @@ public class Interpreter{
 	public Interpreter (AppIO app){
 		_app = app;
 		_programList = new ArrayList<>();
-		_identifierList = new ArrayList<>();
+		_identifiersMap = new HashMap<String, Identifier>();
 		_programCounter = 0;
 	}
 
 
-	private Identifier getIdentifier(Identifier id){
-		int size = _identifierList.size();
 
-		for ( i = 0; i < size ; i++){
-			if( _identifierList.get(i).equals(id))
-				return _identifierList.get(i);
-		}
-	}
+
 
 	/**
 	 * Set's Literal value to Identifier id in given Interpreter 
@@ -47,13 +41,11 @@ public class Interpreter{
 	 * @param value value to be given to the Identifier id
 	 */
 	public void setIdentifierValue(Identifier id, Literal value){
-		int size = _identifierList.size();
-
-		for ( i = 0; i < size ; i++){
-			if( _identifierList.get(i).equals(id))
-				_identifierList.setIdentifierValue(value);
-		}		
-	}
+		if(_identifiersMap.get(id.getAsText()) == null)
+			_identifiersMap.put(id.getAsTest(), id);
+		
+		_identifiersMap.get(id.getAsText()).setIdentifierValue(value);
+	}	
 
 
 
@@ -64,7 +56,7 @@ public class Interpreter{
 	 * @return    value of given Indentifier
 	 */
 	public Literal getIdentifierValue(Identifier id){
-		return getIdentifier(id).getIdentifierValue();
+		return _identifiersMap.get(id.getAsText()).getIdentifierValue();
 	}
 
 

@@ -8,7 +8,6 @@ import pex.core.Expression.Literal;
  */
 
 public abstract class Expression(){
-
 	
 	public abstract String getAsText();
 

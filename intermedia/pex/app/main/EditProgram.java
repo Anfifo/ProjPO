@@ -2,6 +2,10 @@ package pex.app.main;
 
 //FIXME import used core classes
 
+import pex.core.Program;
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
+
 import pex.app.main.Message;
 
 import pex.app.evaluator.EvaluatorMenu;
@@ -29,7 +33,7 @@ public class EditProgram extends Command<InterpreterHandler> {
     public final void execute() {
 
         Form f = new Form();
-        InputString inS = new InputString (f, requestProgramId());
+        InputString inS = new InputString (f, Message.requestProgramId());
         f.parse();
         
         Display display = new Display();

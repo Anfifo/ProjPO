@@ -1,14 +1,19 @@
 package pex.core.expression.literal;
 
 
-public class StringLiteral(){
-	private String _value;
+public class StringLiteral extends Literal{
+	String _value;
+
+
+	public StringLiteral(String value){
+		_value = value;
+	}
 
 	public String getAsText(){
-		/* code me pls */
+		return "\""+ _value +"\""; 
 	}
 
 	public String stringValue(){
-		/* code me pls */
+		return _value;
 	}
 }
