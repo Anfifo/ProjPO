@@ -49,9 +49,10 @@ public class WriteProgram extends Command<InterpreterHandler> {
                 InputString prog_file = new InputString(f, Message.programFileName());
                 f.parse;
 
+                String file = prog_file.value();
                 String prog_txt = program.getAsText();
-
-                PrintWriter writer = new PrintWriter("prog_file.txt");
+                
+                PrintWriter writer = new PrintWriter(file+".txt");
                 writer.println(prog_txt);
                 writer.close();
 
