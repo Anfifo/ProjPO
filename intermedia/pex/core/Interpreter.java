@@ -11,6 +11,7 @@ import pex.core.expression.literal.Literal;
 
 
 
+
 public class Interpreter{
 	private List<Program> _programList;
 	
@@ -18,7 +19,6 @@ public class Interpreter{
 	
 	private AppIO _app;
 	
-	private int _programCounter;
 
 	/**
 	 * default constructor
@@ -68,10 +68,17 @@ public class Interpreter{
 	 * @param program to be added to interpreter
 	 */
 	public void addProgram(Program program){
-		_programList.add(program);
-		_programCounter++;
-	}
+		int i;
+		int programCounter = _programList.size();
 
+		for ( i = 0; i < programCounter ; i++)
+			if program.getProgramName.equals(_programList.get(i).getProgramName){
+				_programList.set(i, program);
+				return;
+			}
+		
+		_programList.add(program);
+	}
 
 
 
@@ -83,8 +90,8 @@ public class Interpreter{
 	 */
 	public Program getProgram(String name){
 		int i;
-
-		for ( i = 0; i < _programCounter ; i++)
+		int programCounter = _programList.size();
+		for ( i = 0; i < programCounter ; i++)
 			if (name.equals(_programList.get(i).getProgramName())
 				return _programList.get(i);
 
