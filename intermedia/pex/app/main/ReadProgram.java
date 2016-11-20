@@ -32,7 +32,7 @@ public class ReadProgram extends Command<InterpreterHandler> {
         if (!file.exists()) {
             Display display = new Display;
 
-            display.add("File not found");
+            display.add(fileNotFound());
             display.display();
         }
         
