@@ -28,7 +28,7 @@ public class NewParser {
 
     public Program parseFile(String fileName, String programName, InterpreterHandle interpreter, List<Expression> expressions ) throws BadSourceException, BadNumberException, InvalidExpressionException, 
                                                                                                   MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
-        _program = new Program(programName, interpreter, expressions);
+        _program = new Program(programName, interpreters);
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);

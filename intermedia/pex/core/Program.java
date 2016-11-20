@@ -7,6 +7,9 @@ public class Program{
 
 	private List<Expression> _expressions;
 
+
+
+
 	/**
 	 * Default constructor
 	 * @param  interpreter interpreter owner of the program
@@ -17,6 +20,18 @@ public class Program{
 		_expression = new ArrayList <Expression>();
 		_name = name;
 	}
+
+
+
+
+	/**
+	 * adds to program's expression list the given collection
+	 * @param  exp a collection of expressions to be added to the program
+	 */
+	public void set(Collection <Expression> exp){
+		_expressions.addAll(exp);
+	}
+
 
 
 
@@ -82,8 +97,6 @@ public class Program{
 		for ( i = 0; i < size; i++){
 			text+=_expressions.getAsText();
 		}
-
-		return text;
 	}
 
 
@@ -100,6 +113,11 @@ public class Program{
 	}
 
 
+
+	/**
+	 * returns this program's String name
+	 * @return String name
+	 */
 	public String getProgramName(){
 		return _name;
 	}
