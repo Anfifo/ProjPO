@@ -28,17 +28,17 @@ public class Save extends Command<InterpreterHandler> {
         try{
 
             Form f = new Form();
-            InputString name = new InputString(f, Message.saveAs());
+            InputString nameFile = new InputString(f, Message.saveAs());
             f.parse();
             File file = null;
-
-            file = new File("name.txt");
+            String name = nameFile.value();
+            file = new File(name+".txt");
             if ( !file.exists() ) {
                 Form f = new Form();
-                InputString name = new InputString(f, Message.newSaveAs());
+                InputString nameFile = new InputString(f, Message.newSaveAs());
                 f.parse
-
-                file = File("name.txt");
+                name = nameFile.value();
+                file = File(name+".txt");
             }
 
             if( !(file.createNewFile()) ){

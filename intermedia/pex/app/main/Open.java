@@ -34,12 +34,13 @@ public class Open extends Command<InterpreterHandler> {
         
         try{
             Form f = new Form();
-            InputString name = new InputString(f, Message.openFile());
+            InputString nameFile = new InputString(f, Message.openFile());
             f.parse();    
 
+            String name = nameFile.value();
             File file = null;
 
-            file = new File("name.txt");
+            file = new File(name+".txt");
 
             if (file.exists()) {
 
@@ -58,8 +59,10 @@ public class Open extends Command<InterpreterHandler> {
                 display.add(Message.fileNotFound());
                 display.display();
 
-                InputString new_name = new InputString(f, Message.openFile());
-                file = new File("new_name.txt");
+                InputString new_nameFile = new InputString(f, Message.openFile());
+                String new_name = new_nameFile.value();
+
+                file = new File(new_name+".txt");
 
                 }
 
