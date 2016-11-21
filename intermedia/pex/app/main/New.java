@@ -24,5 +24,6 @@ public class New extends Command<InterpreterHandler> {
     @Override
     public final void execute() {
         entity().newInterpreter();
+        entity().applyChange();
     }
 }

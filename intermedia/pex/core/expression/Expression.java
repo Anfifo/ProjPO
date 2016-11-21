@@ -8,7 +8,7 @@ import pex.core.expression.literal.Literal;
  * FINISH ME!
  */
 
-public abstract class Expression{
+public abstract class Expression implements java.io.Serializable{
 	
 	public abstract String getAsText();
 

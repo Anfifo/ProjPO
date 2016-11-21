@@ -5,7 +5,7 @@ import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
 import pex.core.expression.literal.Literal;
 
-public class Program{
+public class Program implements java.io.Serializable{
 	
 	private String _name;
 
@@ -99,7 +99,7 @@ public class Program{
 		int i;
 
 		for ( i = 0; i < size; i++){
-			text+=_expressions.get(i).getAsText();
+			text+=_expressions.get(i).getAsText()+"\n";
 		}
 
 		return text;

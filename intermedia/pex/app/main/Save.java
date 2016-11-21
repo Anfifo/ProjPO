@@ -10,7 +10,7 @@ import pex.core.Interpreter;
 import pex.core.InterpreterHandler;
 import pex.core.Program;
 
-//FIXME import used core classes
+
 import pex.app.main.Message;
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
@@ -33,29 +33,28 @@ public class Save extends Command<InterpreterHandler> {
     public final void execute() throws InvalidOperation {
         try{
 
-            Form f = new Form();
-            InputString nameFile = new InputString(f, Message.saveAs());
-            f.parse();
+            if(!entity().getChangedStatus())
+                return;
             
-            File file = null;
+            if (entity().getFileName() == null){
+                Form f = new Form();
+                InputString nameFile = new InputString(f, Message.newSaveAs());
+                f.parse();
+                
+                String name = nameFile.value();
             
-            String name = nameFile.value();
-            
-            file = new File(name);
-            
-            if ( !file.exists() ) {
-                file.createNewFile();
+                entity().setFileName(name);    
             }
 
-            FileOutputStream fileStream = new FileOutputStream(name+".ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileStream);
             
+            FileOutputStream fileStream = new FileOutputStream(entity().getFileName());
+            ObjectOutputStream out = new ObjectOutputStream(fileStream);
             out.writeObject(entity().getInterpreter() );
             out.close();
-
+            fileStream.close();
         }
         catch(IOException io){
-            throw new InvalidOperation();
+            io.printStackTrace();
         }
     }
 }

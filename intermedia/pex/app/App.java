@@ -18,7 +18,7 @@ import pt.utl.ist.po.ui.Display;
  * This is a sample client for the expression evaluator.
  * It uses a text-based user interface.
  */
-public class App implements AppIO {
+public class App implements AppIO, java.io.Serializable{
     // Add fileds here if needed
 
     public App() {

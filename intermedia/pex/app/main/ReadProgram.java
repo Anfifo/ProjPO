@@ -29,11 +29,11 @@ public class ReadProgram extends Command<InterpreterHandler> {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws InvalidOperation{
-        File file = null;
         Form f = new Form();
         InputString nameFile = new InputString(f, Message.programFileName());
         f.parse(); 
-        file = new File(nameFile.value());
+        
+        File file = new File(nameFile.value());
 
         if (!file.exists()) {
             Display display = new Display();
@@ -41,14 +41,16 @@ public class ReadProgram extends Command<InterpreterHandler> {
             display.add(Message.fileNotFound());
             display.display();
         }
+
         
         else{
-            NewParser parser= new NewParser();
+            NewParser parser = new NewParser();
             try{
                 Program prog = parser.parseFile(nameFile.value(), nameFile.value(), entity());
                 entity().getInterpreter().addProgram(prog);
+                entity().applyChange();
             }
-            catch(ParserException o){ throw new InvalidOperation(); }
+            catch(ParserException o){ o.printStackTrace(); }
         }
     }
 }

@@ -30,7 +30,7 @@ public class WriteProgram extends Command<InterpreterHandler> {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws InvalidOperation {
-        File file = null;
+
         Display display = new Display();
 
         try{
@@ -56,7 +56,6 @@ public class WriteProgram extends Command<InterpreterHandler> {
                 PrintWriter writer = new PrintWriter(fileName);
                 writer.println(prog_txt);
                 writer.close();
-
             }
         }
 

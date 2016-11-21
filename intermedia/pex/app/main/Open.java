@@ -46,9 +46,12 @@ public class Open extends Command<InterpreterHandler> {
 
             if (file.exists()) {
 
-                FileInputStream fileStream = new FileInputStream(name+".ser");
+                FileInputStream fileStream = new FileInputStream(name);
                 ObjectInputStream in = new ObjectInputStream(fileStream);
                 interpreter = (Interpreter) in.readObject();
+
+                entity().setInterpreter(interpreter);
+                entity().setFileName(name);
 
                 in.close();
                 fileStream.close();
@@ -61,16 +64,14 @@ public class Open extends Command<InterpreterHandler> {
                 display.display();
             }
         }
-        catch(FileNotFoundException fnf){
-            Display disp = new Display();
-            disp.add(Message.fileNotFound());
-            disp.display();
+        catch(FileNotFoundException f){
+            f.printStackTrace();
         }
-        catch(ClassNotFoundException cnf){
-            throw new InvalidOperation();
+        catch(ClassNotFoundException o){
+            o.printStackTrace();
         }
         catch(IOException io){
-            throw new InvalidOperation();
+            io.printStackTrace();
         }
     }
 }
