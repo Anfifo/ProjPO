@@ -1,16 +1,28 @@
 package pex.app.main;
 
-import pex.core.InterpreterHandler;
-import pex.core.Interpreter;
-import pex.core.Program;
+/**
+ *
+ * Command Read Program <p>
+ * Class responsible for reading and loading given file of 
+ * a program(code) if it exists.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
 
-import pex.app.main.Message;
+import pex.core.Program;
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
+
 import pex.parser.*;
 import java.io.File;
+import pex.app.main.Message;
 
+import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
-import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InvalidOperation;
 

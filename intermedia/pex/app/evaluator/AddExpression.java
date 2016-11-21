@@ -1,6 +1,5 @@
 package pex.app.evaluator;
 
-//FIXME import used core classes
 
 import pex.app.BadExpressionException;
 import pex.app.BadPositionException;

@@ -1,6 +1,15 @@
 package pex.app.evaluator;
 
-//FIXME import used core classes
+/**
+ * Program Manipulation. <p>
+ * Menu class (UI) responsible executing the commands that edit and run programs. 
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ *
+ */
 
 import pex.core.Program;
 
@@ -13,7 +22,7 @@ import pt.utl.ist.po.ui.Menu;
 public class EvaluatorMenu extends Menu {
 
     /**
-     * @param receiver
+     * @param receiver the program which the menu will act upon.
      */
     public EvaluatorMenu(Program receiver) {
         super(Label.TITLE,

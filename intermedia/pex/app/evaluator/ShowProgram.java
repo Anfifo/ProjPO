@@ -1,7 +1,16 @@
 package pex.app.evaluator;
 
-import pex.core.Program;
+/**
+ * Show Program <p>
+ * Class (command) responsible for listing to the output the given program's code.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
 
+import pex.core.Program;
 import pt.utl.ist.po.ui.Display;
 
 
@@ -17,14 +26,17 @@ public class ShowProgram extends ProgramCommand {
         super(Label.SHOW_PROGRAM, receiver);
     }
 
+
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
+
         String programString = entity().getAsText();
 
         Display display = new Display();
 
         display.add(programString);
+        
         display.display();
     }
 }

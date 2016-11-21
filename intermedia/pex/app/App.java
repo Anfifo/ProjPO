@@ -1,18 +1,30 @@
 package pex.app;
 
-// import core entities;
-import pex.core.InterpreterHandler;
-import pex.core.Interpreter;
+/**
+ *
+ * App <p>
+ * Class responsible for providing a client sample, creates 
+ * a layer between core and user interface.<p>
+ * 
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.Program;
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
 
 import pex.AppIO;
 import pex.parser.*;
 import pex.app.main.MainMenu;
 
 import pt.utl.ist.po.ui.Form;
+import pt.utl.ist.po.ui.Display;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InputInteger;
-import pt.utl.ist.po.ui.Display;
 
 /**
  * This is a sample client for the expression evaluator.
@@ -62,10 +74,10 @@ public class App implements AppIO, java.io.Serializable{
     }
 
     /**
+     * main function that runs the (user UI) menu.
      * @param args
      */
     public static void main(String[] args) {
-        //FIXME create main core object
         
         AppIO app = new App();
         InterpreterHandler receiver = new InterpreterHandler(app);
@@ -74,7 +86,7 @@ public class App implements AppIO, java.io.Serializable{
         String datafile = System.getProperty("import"); //$NON-NLS-1$
         if (datafile != null) {
             try {
-
+                //parsing imported file(program) and adding to Interpreter
                 NewParser parser = new NewParser();
                 Program prog = parser.parseFile(datafile, "import", receiver);
 

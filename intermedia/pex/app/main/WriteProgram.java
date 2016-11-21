@@ -1,5 +1,18 @@
 package pex.app.main;
 
+/**
+ *
+ * Command WriteProgram <p>
+ * Class responsible for writing(saving) a program(code) to a file if
+ * program exists.<p>
+ * Present files with same name as program will be replaced.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.File;

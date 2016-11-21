@@ -1,7 +1,16 @@
 package pex.core.expression.compositeexpression.binaryexpression;
 
-import pex.core.expression.literal.Literal;
+/**
+ *
+ * Projeto PO
+ * Grupo nr 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.expression.Expression;
+import pex.core.expression.literal.Literal;
 
 
 public class And extends BinaryExpression{

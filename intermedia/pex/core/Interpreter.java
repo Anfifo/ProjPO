@@ -1,7 +1,16 @@
 package pex.core;
 
 /**
- * Fancy class name and description placeholder
+ * Interpreter Class <p>
+ * An interpreter is a computer program that directly executes expressions written in a programming language, without previously compiling them.<p>
+ * An interpreter can hold 0 or more programs and is able to access and change them.<p>
+ * An interpreter has a list of all identifiers (variables) used in it's programs with it's values associated and is able to access them.<p>
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ * @see <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)">Interpreter(Computing) at Wikipedia</a>
  */
 
 import pex.AppIO;
@@ -13,12 +22,24 @@ import java.util.*;
 
 
 public class Interpreter implements java.io.Serializable{
+
+	/**
+	 * A list of all programs that the interpreter holds.
+	 */
 	private List<Program> _programList;
 	
+	/**
+	 * A map/table of all used identifiers in the programs.
+	 */
 	private Map<String, Identifier> _identifiersMap;
 	
+	/**
+	 * the app under which the interpreter works.
+	 */
 	private AppIO _app;
 	
+
+
 
 	/**
 	 * default constructor
@@ -102,7 +123,7 @@ public class Interpreter implements java.io.Serializable{
 
 
 	/**
-	 * gets the app which the interpreter was created on
+	 * gets the app which the interpreter was created on.
 	 * @return the app which the interpreter was created on
 	 */
 	public AppIO getAppIO(){

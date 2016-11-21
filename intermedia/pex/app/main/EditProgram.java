@@ -1,19 +1,30 @@
 package pex.app.main;
 
-//FIXME import used core classes
+/**
+ *  Class Edit Program <p>
+ *  Responsible for selecting a program (through user input)
+ *  and calling upon the program it's editing menu.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ * 
+ */
 
 import pex.core.Program;
 import pex.core.Interpreter;
 import pex.core.InterpreterHandler;
 
-import pex.app.main.Message;
 
+import pex.app.main.Message;
 import pex.app.evaluator.EvaluatorMenu;
-import pt.utl.ist.po.ui.Command;
-import pt.utl.ist.po.ui.InputString;
-import pt.utl.ist.po.ui.Menu;
-import pt.utl.ist.po.ui.Display;
+
 import pt.utl.ist.po.ui.Form;
+import pt.utl.ist.po.ui.Menu;
+import pt.utl.ist.po.ui.Command;
+import pt.utl.ist.po.ui.Display;
+import pt.utl.ist.po.ui.InputString;
 
 
 /**
@@ -44,7 +55,6 @@ public class EditProgram extends Command<InterpreterHandler> {
         if ( program == null){
             display.add(Message.noSuchProgram(name));
             display.display();
-
         }
 
         /* Program Manipulation Menu */

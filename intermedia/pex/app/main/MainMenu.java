@@ -2,8 +2,8 @@ package pex.app.main;
 
 import pex.core.InterpreterHandler;
 
-import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Menu;
+import pt.utl.ist.po.ui.Command;
 
 /**
  * Menu builder.

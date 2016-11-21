@@ -1,13 +1,24 @@
 package pex.app.main;
 
-import pex.core.InterpreterHandler;
-import pex.core.Interpreter;
+/**
+ *
+ * Command New Program <p>
+ * Class responsible for creating an empty new program on the interpreter.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.Program;
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
 
 import pex.app.main.Message;
 
-import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
+import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.InputString;
 
 /**

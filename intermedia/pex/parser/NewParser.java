@@ -1,13 +1,24 @@
 package pex.parser;
 
-import java.io.IOException;
-import java.io.StreamTokenizer;
-import java.io.FileReader;
-import java.io.StringReader;
-import java.io.Reader;
+/**
+ * NewParser Class <p>
+ * Responsible for parsing input file into specific expression types.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
 
-import java.util.Collection;
+import java.io.Reader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StreamTokenizer;
+
 import java.util.ArrayList;
+import java.util.Collection;
+
 
 import pex.core.*;
 import pex.core.expression.*;

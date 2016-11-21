@@ -1,12 +1,21 @@
 package pex.core.expression.compositeexpression.binaryexpression;
 
+/**
+ *
+ * Projeto PO
+ * Grupo nr 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 
 
 public class Le extends BinaryExpression{
 
-/**
+	/**
 	 * default Constructor
 	 * @param  exp1 first argument expression
 	 * @param  exp2 second argument expression

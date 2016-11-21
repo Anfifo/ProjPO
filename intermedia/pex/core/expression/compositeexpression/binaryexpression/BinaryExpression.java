@@ -1,7 +1,18 @@
 package pex.core.expression.compositeexpression.binaryexpression;
 
+/**
+ * Class Binary Expression<p>
+ * It's a composite expression composed by an operator and 2 expression.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
+
 
 public abstract class BinaryExpression extends CompositeExpression{
 

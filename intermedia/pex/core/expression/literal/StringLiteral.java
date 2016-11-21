@@ -1,5 +1,11 @@
 package pex.core.expression.literal;
 
+/**
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
 
 public class StringLiteral extends Literal{
 	String _value;
@@ -17,6 +23,10 @@ public class StringLiteral extends Literal{
 		return _value;
 	}
 
+	/**
+	 * evaluates the expression
+	 * @return 
+	 */
 	public Literal evaluate(){
 		return this;
 	}

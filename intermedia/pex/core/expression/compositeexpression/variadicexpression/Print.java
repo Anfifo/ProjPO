@@ -1,5 +1,12 @@
 package pex.core.expression.compositeexpression.variadicexpression;
 
+/**
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 
@@ -30,14 +37,12 @@ public class Print extends VariadicExpression{
 		
 		int i = 0;
 
-		String output = "(print ";
+		String output = "(print";
 
-
-		for( i = 0; i < size-1; i++){
-			output += expressions.get(i).getAsText() + " ";
+		for( i = 0; i < size; i++){
+			output += " " + expressions.get(i).getAsText();
 		}
-
-		output += expressions.get(i+1).getAsText()+ ")";
+		output += ")";
  
 		return output;
 	}

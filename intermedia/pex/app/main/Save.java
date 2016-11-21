@@ -1,19 +1,36 @@
 package pex.app.main;
 
+/**
+ *
+ * Command Save(Interpreter) <p>
+ * Class responsible for saving current interpreter to
+ * it's related file if it exists.<p> In case no file
+ * is associated with current interpreter a new 
+ * fileName will be asked and created.
+ * 
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
+
+
+// File saving imports
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
+
+import pex.core.Program;
 import pex.core.Interpreter;
 import pex.core.InterpreterHandler;
-import pex.core.Program;
 
 
 import pex.app.main.Message;
-import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
+import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InvalidOperation;
 

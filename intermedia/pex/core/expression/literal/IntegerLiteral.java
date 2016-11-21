@@ -1,5 +1,11 @@
 package pex.core.expression.literal;
 
+/**
+ * @author Grupo 31
+ * @author Andre Fonseca 84698
+ * @author Antonio Terra 84702
+ * @version 1.0
+ */
 
 public class IntegerLiteral extends Literal{
 	private int _value;
