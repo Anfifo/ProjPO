@@ -1,6 +1,8 @@
 package pex.core.expression.compositeexpression.unaryexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.Expression;
+
 
 public class Not extends UnaryExpression{
 
@@ -17,7 +19,7 @@ public class Not extends UnaryExpression{
 	 * @return the string representation
 	 */
 	public String getAsText(){
-		return "(not "+ super.getFirstArgument().getAsText() +" "+  super.getSecondArgument().getAsText() + " "+ super.getThirdArgument().getAsText() +")";
+		return "(not "+ super.getArgument().getAsText()+")";
 	}
 
 
@@ -26,5 +28,6 @@ public class Not extends UnaryExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }

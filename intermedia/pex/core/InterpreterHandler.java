@@ -1,5 +1,8 @@
 package pex.core;
 
+import pex.AppIO;
+
+
 public class InterpreterHandler{
 	private Interpreter _interpreter;
 	private boolean _initialized; 
@@ -16,7 +19,7 @@ public class InterpreterHandler{
 	}
 
 
-	public void newInterpreter(Interpreter interpreter){
+	public void newInterpreter(){
 		_interpreter = new Interpreter(_app);
 		_initialized = true;
 	}

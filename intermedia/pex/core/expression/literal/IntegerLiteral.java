@@ -9,10 +9,15 @@ public class IntegerLiteral extends Literal{
 	}
 
 	public String getAsText(){
-		return "\"" + _value + "\""
+		return "\"" + _value + "\"";
 	}
 
 	public int intValue(){
 		return _value;
 	}
+
+	public Literal evaluate(){
+		return this;
+	}
+
 }

@@ -5,9 +5,14 @@ import pex.core.expression.compositeexpression.CompositeExpression;
 
 public abstract class BinaryExpression extends CompositeExpression{
 
-	private Argument _firstArgument;
-	private Argument _secondArgument;
+	private Expression _firstArgument;
+	private Expression _secondArgument;
 	
+	public BinaryExpression(Expression exp1, Expression exp2){
+		_firstArgument = exp1;
+		_secondArgument = exp2;
+	}
+
 	public Expression getFirstArgument(){
 		return _firstArgument;
 	}

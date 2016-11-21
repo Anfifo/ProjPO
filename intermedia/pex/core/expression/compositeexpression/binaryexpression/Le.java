@@ -1,6 +1,8 @@
 package pex.core.expression.compositeexpression.binaryexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.Expression;
+
 
 public class Le extends BinaryExpression{
 
@@ -27,5 +29,6 @@ public class Le extends BinaryExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }

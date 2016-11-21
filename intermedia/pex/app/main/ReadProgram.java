@@ -1,13 +1,19 @@
 package pex.app.main;
 
+import pex.core.InterpreterHandler;
+import pex.core.Interpreter;
+import pex.core.Program;
+
 import pex.app.main.Message;
-import pex.parser.NewParser;
+import pex.parser.*;
 import java.io.File;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
+import pt.utl.ist.po.ui.InvalidOperation;
+
 
 /**
  * Read existing program.
@@ -22,7 +28,7 @@ public class ReadProgram extends Command<InterpreterHandler> {
 
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
-    public final void execute() {
+    public final void execute() throws InvalidOperation{
         File file = null;
         Form f = new Form();
         InputString nameFile = new InputString(f, Message.programFileName());
@@ -30,17 +36,19 @@ public class ReadProgram extends Command<InterpreterHandler> {
         file = new File(nameFile.value());
 
         if (!file.exists()) {
-            Display display = new Display;
+            Display display = new Display();
 
-            display.add(fileNotFound());
+            display.add(Message.fileNotFound());
             display.display();
         }
         
         else{
-
-            Program prog = NewParser.parseFile(nameFile.value(), nameFile.value(), entity());
-
-            entity().getInterpreter().addProgram(prog);
+            NewParser parser= new NewParser();
+            try{
+                Program prog = parser.parseFile(nameFile.value(), nameFile.value(), entity());
+                entity().getInterpreter().addProgram(prog);
+            }
+            catch(ParserException o){ throw new InvalidOperation(); }
         }
     }
 }

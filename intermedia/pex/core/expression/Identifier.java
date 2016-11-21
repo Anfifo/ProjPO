@@ -1,6 +1,7 @@
 package pex.core.expression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import java.util.*;
 
 public class Identifier extends Expression{
 	private String _name;
@@ -12,7 +13,7 @@ public class Identifier extends Expression{
 	public Identifier(String name){
 		_name = name;
 		_initialized = false;
-		// Literal = 0 ?
+		// missing default initialization of Literal value
 	}
 
 	public Identifier(String name, Literal value){
@@ -21,9 +22,11 @@ public class Identifier extends Expression{
 		_initialized = true;
 	}
 
+	public Literal getIdentifierValue(){
+		return _value;
+	}
 
-
-	public setIdentifierValue(Literal value){
+	public void setIdentifierValue(Literal value){
 		_value = value;
 		_initialized = true;
 	}
@@ -33,15 +36,15 @@ public class Identifier extends Expression{
 	}
 
 	public Literal evaluate(){
-
+		return null; //FIXME needs implementation
 	}
 
 
-	public equals(Object object){
+	public boolean equals(Object object){
 
 	    if (object instanceof Identifier) {
-	        Identifier object = (Identifier) object;
-	        return object.getAsText().equals(this.getAsText());
+	        Identifier that = (Identifier) object;
+	        return that.getAsText().equals(this.getAsText());
     	}
     	
     	return false;

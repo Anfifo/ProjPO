@@ -10,6 +10,14 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 import pex.core.*;
+import pex.core.expression.*;
+import pex.core.expression.literal.*;
+import pex.core.expression.compositeexpression.*;
+import pex.core.expression.compositeexpression.unaryexpression.*;
+import pex.core.expression.compositeexpression.binaryexpression.*;
+import pex.core.expression.compositeexpression.ternaryexpression.*;
+import pex.core.expression.compositeexpression.variadicexpression.*;
+
 
 public class NewParser {
 
@@ -26,9 +34,10 @@ public class NewParser {
         _tokenizer.eolIsSignificant(false);
     }
 
-    public Program parseFile(String fileName, String programName, InterpreterHandle interpreter ) throws BadSourceException, BadNumberException, InvalidExpressionException, 
+    public Program parseFile(String fileName, String programName, InterpreterHandler interpreter ) throws BadSourceException, BadNumberException, InvalidExpressionException, 
                                                                                                   MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
-        _program = new Program(interpreter, programName);
+
+        Program _program = new Program(interpreter.getInterpreter(), programName);
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);

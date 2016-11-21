@@ -1,8 +1,12 @@
 package pex.app;
 
 // import core entities;
+import pex.core.InterpreterHandler;
+import pex.core.Interpreter;
+import pex.core.Program;
+
 import pex.AppIO;
-import pex.parser.ParserException;
+import pex.parser.*;
 import pex.app.main.MainMenu;
 
 import pt.utl.ist.po.ui.Form;
@@ -31,6 +35,7 @@ public class App implements AppIO {
 
         display.add(str);
         display.display();
+    }
 
     /**
      * Reads a string inputed by the user.
@@ -41,7 +46,7 @@ public class App implements AppIO {
         Form f = new Form();
         InputString str = new InputString(f, null);
         f.parse();
-        return str;
+        return str.value();
     }
 
     /**
@@ -53,7 +58,7 @@ public class App implements AppIO {
         Form f = new Form();
         InputInteger n  = new InputInteger(f, null);
         f.parse();
-        return n;
+        return n.value();
     }
 
     /**
@@ -70,7 +75,8 @@ public class App implements AppIO {
         if (datafile != null) {
             try {
 
-                Program prog = NewParser.parseFile(datafile, "import", receiver);
+                NewParser parser = new NewParser();
+                Program prog = parser.parseFile(datafile, "import", receiver);
 
                 receiver.getInterpreter().addProgram(prog);
                 

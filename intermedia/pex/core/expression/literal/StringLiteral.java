@@ -16,4 +16,8 @@ public class StringLiteral extends Literal{
 	public String stringValue(){
 		return _value;
 	}
+
+	public Literal evaluate(){
+		return this;
+	}
 }

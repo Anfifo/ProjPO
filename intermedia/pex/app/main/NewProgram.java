@@ -1,7 +1,10 @@
 package pex.app.main;
 
-//FIXME import used core classes
-import pex.app.main.Message
+import pex.core.InterpreterHandler;
+import pex.core.Interpreter;
+import pex.core.Program;
+
+import pex.app.main.Message;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
@@ -23,10 +26,10 @@ public class NewProgram extends Command<InterpreterHandler>{
     @Override
     public final void execute() {
         Form f = new Form();
-        InputString name = new InputString (f, requestProgramId());
+        InputString name = new InputString (f, Message.requestProgramId());
         f.parse();
 
-        /* FIXME: Missing treatment for missing program name */
-        entity().getInterpreter().addProgram(entity().getInterpreter, name.value());
+        Program program = new Program (entity().getInterpreter(), name.value());
+        entity().getInterpreter().addProgram(program);
     }
 }

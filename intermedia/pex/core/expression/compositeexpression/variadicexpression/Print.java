@@ -1,6 +1,10 @@
 package pex.core.expression.compositeexpression.variadicexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.Expression;
+
+import java.util.*;
+
 
 public class Print extends VariadicExpression{
 
@@ -33,7 +37,7 @@ public class Print extends VariadicExpression{
 			output += expressions.get(i).getAsText() + " ";
 		}
 
-		output += expression.get(i+1).getAsText()+ ")";
+		output += expressions.get(i+1).getAsText()+ ")";
  
 		return output;
 	}
@@ -46,5 +50,6 @@ public class Print extends VariadicExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }

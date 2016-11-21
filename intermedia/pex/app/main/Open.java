@@ -4,9 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
-//FIXME import used core classes
 import pex.core.InterpreterHandler;
+import pex.core.Interpreter;
 
 import pex.app.main.Message;
 import pt.utl.ist.po.ui.Command;
@@ -28,10 +30,10 @@ public class Open extends Command<InterpreterHandler> {
 
     /** @see pt.tecnico.po.ui.Command#execute() */
     @Override
-    public final void execute() throws InvalidOperation, IOException, ClassNotFoundException {
-        Interpreter inter = null;
+    public final void execute() throws InvalidOperation{
+        Interpreter interpreter = null;
         int i = 0;
-        
+
         try{
             Form f = new Form();
             InputString nameFile = new InputString(f, Message.openFile());
@@ -44,35 +46,31 @@ public class Open extends Command<InterpreterHandler> {
 
             if (file.exists()) {
 
-                FileInputStream file = new FileInputStream(name+".ser");
-                ObjectInputStream in = new ObjectInputStream(file);
-                inter = (Interpreter) in.readObject();
+                FileInputStream fileStream = new FileInputStream(name+".ser");
+                ObjectInputStream in = new ObjectInputStream(fileStream);
+                interpreter = (Interpreter) in.readObject();
+
                 in.close();
-                file.close();
+                fileStream.close();
             }
 
             else{
                 Display display = new Display();
 
-                while( !file.exists() ){
-
                 display.add(Message.fileNotFound());
                 display.display();
-
-                InputString new_nameFile = new InputString(f, Message.openFile());
-                String new_name = new_nameFile.value();
-
-                file = new File(new_name);
-
-                }
-
-                FileInputStream file = new FileInputStream(new_name+".ser");
-                ObjectInputStream in = new ObjectInputStream(file);
-                inter = (Interpreter) in.readObject();
-                in.close();
-                file.close();
             }
         }
-
+        catch(FileNotFoundException fnf){
+            Display disp = new Display();
+            disp.add(Message.fileNotFound());
+            disp.display();
+        }
+        catch(ClassNotFoundException cnf){
+            throw new InvalidOperation();
+        }
+        catch(IOException io){
+            throw new InvalidOperation();
+        }
     }
 }

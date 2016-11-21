@@ -4,7 +4,7 @@ import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
 
 public abstract class UnaryExpression extends CompositeExpression{
-	Expression _argument;
+	private Expression _argument;
 
 	public UnaryExpression(Expression exp){
 		_argument = exp;

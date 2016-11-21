@@ -1,13 +1,17 @@
 package pex.core;
 
+import java.util.*;
+import pex.core.expression.Expression;
+import pex.core.expression.Identifier;
+import pex.core.expression.literal.Literal;
+
 public class Program{
+	
 	private String _name;
 
 	private Interpreter _interpreter;
 
 	private List<Expression> _expressions;
-
-
 
 
 	/**
@@ -17,7 +21,7 @@ public class Program{
 	 */
 	public Program(Interpreter interpreter, String name){
 		_interpreter = interpreter;
-		_expression = new ArrayList <Expression>();
+		_expressions = new ArrayList <Expression>();
 		_name = name;
 	}
 
@@ -67,7 +71,7 @@ public class Program{
 	 * @param value that's going to be given to Identifier (id)
 	 */
 	public void setIdentifierValue(Identifier id, Literal value){
-		_interpreter.getInterpreter().setIdentifierValue(id, value);
+		_interpreter.setIdentifierValue(id, value);
 	}
 
 
@@ -78,7 +82,7 @@ public class Program{
 	 * @return the literal that results of it's execution
 	 */
 	public Literal execute(){
-
+		return null; //FIXME needs implementationc
 	}
 
 
@@ -95,8 +99,10 @@ public class Program{
 		int i;
 
 		for ( i = 0; i < size; i++){
-			text+=_expressions.getAsText();
+			text+=_expressions.get(i).getAsText();
 		}
+
+		return text;
 	}
 
 
@@ -109,7 +115,7 @@ public class Program{
 	 */
 	public Program getProgram(String name){
 
-		return _interpreter.getInterpreter().getProgram(name);
+		return _interpreter.getProgram(name);
 	}
 
 

@@ -1,7 +1,9 @@
-package pex.core.expression.compositeexpression.binaryexpression;
+package pex.core.expression.compositeexpression.variadicexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
+
+import java.util.*;
 
 public abstract class VariadicExpression extends CompositeExpression{
 

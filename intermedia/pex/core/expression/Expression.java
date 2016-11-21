@@ -1,13 +1,14 @@
-package pex.core.Expression;
+package pex.core.expression;
 
-import pex.core.Expression.Literal;
+import pex.core.expression.literal.Literal;
+
 
 /**
  * Abstract class for an Expression
  * FINISH ME!
  */
 
-public abstract class Expression(){
+public abstract class Expression{
 	
 	public abstract String getAsText();
 

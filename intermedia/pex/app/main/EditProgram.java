@@ -33,16 +33,16 @@ public class EditProgram extends Command<InterpreterHandler> {
     public final void execute() {
 
         Form f = new Form();
+        Display display = new Display();
         InputString inS = new InputString (f, Message.requestProgramId());
         f.parse();
         
-        Display display = new Display();
 
-        name = inS.value();
+        String name = inS.value();
         Program program = entity().getInterpreter().getProgram(name);
         
         if ( program == null){
-            display.add(noSuchProgram(name));
+            display.add(Message.noSuchProgram(name));
             display.display();
 
         }
@@ -50,8 +50,7 @@ public class EditProgram extends Command<InterpreterHandler> {
         /* Program Manipulation Menu */
         else {
             Menu programManipulationMenu = new EvaluatorMenu(program);
-            programManipulationMenu.Open(); 
+            programManipulationMenu.open(); 
         }
-
     }
 }

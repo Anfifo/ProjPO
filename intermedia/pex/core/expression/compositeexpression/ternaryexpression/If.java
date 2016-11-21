@@ -1,8 +1,9 @@
-package pex.core.expression.compositeexpression.trenaryexpression;
+package pex.core.expression.compositeexpression.ternaryexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.Expression;
 
-public class If extends TrenaryExpression{
+public class If extends TernaryExpression{
 
 	/**
 	 * default Constructor
@@ -28,5 +29,6 @@ public class If extends TrenaryExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }

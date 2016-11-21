@@ -9,6 +9,7 @@ import pex.core.Program;
 import pex.core.expression.Identifier;
 import pex.core.expression.literal.Literal;
 
+import java.util.*;
 
 
 public class Interpreter implements java.io.Serializable{
@@ -27,7 +28,6 @@ public class Interpreter implements java.io.Serializable{
 		_app = app;
 		_programList = new ArrayList<>();
 		_identifiersMap = new HashMap<String, Identifier>();
-		_programCounter = 0;
 	}
 
 
@@ -41,7 +41,7 @@ public class Interpreter implements java.io.Serializable{
 	 */
 	public void setIdentifierValue(Identifier id, Literal value){
 		if(_identifiersMap.get(id.getAsText()) == null)
-			_identifiersMap.put(id.getAsTest(), id);
+			_identifiersMap.put(id.getAsText(), id);
 		
 		_identifiersMap.get(id.getAsText()).setIdentifierValue(value);
 	}	
@@ -71,7 +71,7 @@ public class Interpreter implements java.io.Serializable{
 		int programCounter = _programList.size();
 
 		for ( i = 0; i < programCounter ; i++)
-			if program.getProgramName.equals(_programList.get(i).getProgramName){
+			if (program.getProgramName().equals(_programList.get(i).getProgramName())){
 				_programList.set(i, program);
 				return;
 			}
@@ -91,7 +91,7 @@ public class Interpreter implements java.io.Serializable{
 		int i;
 		int programCounter = _programList.size();
 		for ( i = 0; i < programCounter ; i++)
-			if (name.equals(_programList.get(i).getProgramName())
+			if (name.equals(_programList.get(i).getProgramName()))
 				return _programList.get(i);
 
 		return null;

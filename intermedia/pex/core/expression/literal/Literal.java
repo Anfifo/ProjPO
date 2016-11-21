@@ -1,11 +1,10 @@
 package pex.core.expression.literal;
 
+import pex.core.expression.Expression;
+
 public abstract class Literal extends Expression{
 
-	/**
-	 * FIXME needs implementation
-	 */
-	public Literal evaluate(){
-		/* ? */
-	}
+	public abstract Literal evaluate();
+
+	public abstract String getAsText();
 }

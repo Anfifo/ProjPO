@@ -8,7 +8,7 @@ public abstract class TernaryExpression extends CompositeExpression{
 	private Expression _secondArgument;
 	private Expression _thirdArgument;
 
-	public CompositeExpression(Expression arg1, Expression arg2, Expression arg3){
+	public TernaryExpression(Expression arg1, Expression arg2, Expression arg3){
 		_firstArgument = arg1;
 		_secondArgument = arg2;
 		_thirdArgument = arg3;

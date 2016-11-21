@@ -22,9 +22,9 @@ public class ShowProgram extends ProgramCommand {
     public final void execute() {
         String programString = entity().getAsText();
 
-        Display display = new Display;
+        Display display = new Display();
 
         display.add(programString);
-        display.display;
+        display.display();
     }
 }

@@ -3,6 +3,12 @@ package pex.app.main;
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
+import pex.core.Program;
 
 //FIXME import used core classes
 import pex.app.main.Message;
@@ -24,7 +30,7 @@ public class Save extends Command<InterpreterHandler> {
 
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
-    public final void execute() throws InvalidOperation, IOException {
+    public final void execute() throws InvalidOperation {
         try{
 
             Form f = new Form();
@@ -38,27 +44,18 @@ public class Save extends Command<InterpreterHandler> {
             file = new File(name);
             
             if ( !file.exists() ) {
-                Form f = new Form();
-                InputString nameFile = new InputString(f, Message.newSaveAs());
-                f.parse
-                name = nameFile.value();
-                file = File(name);
-            }
-
-            if( !(file.createNewFile()) ){
-                file.delete();
                 file.createNewFile();
             }
 
-           
-
-            FileOutputStream file = new FileOutputStream(name+".ser");
-            ObjectOutputStream out = new ObjectOutputStream(file);
+            FileOutputStream fileStream = new FileOutputStream(name+".ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileStream);
             
             out.writeObject(entity().getInterpreter() );
             out.close();
-            file.close();
 
+        }
+        catch(IOException io){
+            throw new InvalidOperation();
         }
     }
 }

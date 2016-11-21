@@ -1,6 +1,7 @@
 package pex.core.expression.compositeexpression.unaryexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.Expression;
 
 public class Call extends UnaryExpression{
 
@@ -17,7 +18,7 @@ public class Call extends UnaryExpression{
 	 * @return the string representation
 	 */
 	public String getAsText(){
-		return "(call "+ super.getFirstArgument().getAsText() +" "+  super.getSecondArgument().getAsText() + " "+ super.getThirdArgument().getAsText() +")";
+		return "(call "+ super.getArgument().getAsText() +")";
 	}
 
 
@@ -26,5 +27,6 @@ public class Call extends UnaryExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }

@@ -1,13 +1,14 @@
 package pex.app.main;
 
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.File;
 import java.io.PrintWriter;
 
-import pex.app.core.Interpreter;
-import pex.app.core.InterpreterHandler;
-import pex.app.core.Program
-import pex.app.main.Message
+import pex.core.Interpreter;
+import pex.core.InterpreterHandler;
+import pex.core.Program;
+import pex.app.main.Message;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
@@ -37,30 +38,32 @@ public class WriteProgram extends Command<InterpreterHandler> {
             InputString prog_name = new InputString(f, Message.requestProgramId());
             f.parse();
             Interpreter interpreter = entity().getInterpreter();
-            Program program = interpreter.getProgram(prog_name);
+            Program program = interpreter.getProgram(prog_name.value());
             
             if (program == null) {
-                display.add(noSuchProgram());
+                display.add(Message.noSuchProgram(prog_name.value()));
                 display.display();
             }
 
             else{
-                Form f = new Form();
-                InputString prog_file = new InputString(f, Message.programFileName());
-                f.parse;
+                Form form2 = new Form();
+                InputString prog_file = new InputString(form2, Message.programFileName());
+                form2.parse();
 
-                String file = prog_file.value();
+                String fileName = prog_file.value();
                 String prog_txt = program.getAsText();
                 
-                PrintWriter writer = new PrintWriter(file);
+                PrintWriter writer = new PrintWriter(fileName);
                 writer.println(prog_txt);
                 writer.close();
 
             }
         }
 
-        catch(InvalidOperation o){
-            
+        catch(FileNotFoundException o){
+            Display disp = new Display();
+            disp.add(Message.fileNotFound());
+            disp.display();
         }
     }
 }

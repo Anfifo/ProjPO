@@ -28,5 +28,6 @@ public class Add extends BinaryExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
+		return null; //FIXME needs implementation
 	}
 }
