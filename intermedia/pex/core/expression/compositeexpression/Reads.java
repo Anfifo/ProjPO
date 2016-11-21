@@ -1,6 +1,6 @@
 package pex.core.expression.compositeexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
 
 public class Reads extends CompositeExpression{
 
@@ -9,7 +9,7 @@ public class Reads extends CompositeExpression{
 	 * @return the string representation
 	 */
 	public String getAsText(){
-
+		return "(reads)";
 	}
 
 
@@ -18,6 +18,5 @@ public class Reads extends CompositeExpression{
 	 * @return the literal representation of the expression
 	 */
 	public Literal evaluate(){
-
 	}
 }

@@ -52,7 +52,7 @@ public class WriteProgram extends Command<InterpreterHandler> {
                 String file = prog_file.value();
                 String prog_txt = program.getAsText();
                 
-                PrintWriter writer = new PrintWriter(file+".txt");
+                PrintWriter writer = new PrintWriter(file);
                 writer.println(prog_txt);
                 writer.close();
 

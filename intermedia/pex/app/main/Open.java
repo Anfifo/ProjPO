@@ -40,11 +40,11 @@ public class Open extends Command<InterpreterHandler> {
             String name = nameFile.value();
             File file = null;
 
-            file = new File(name+".txt");
+            file = new File(name);
 
             if (file.exists()) {
 
-                FileInputStream file = new FileInputStream("name.ser");
+                FileInputStream file = new FileInputStream(name+".ser");
                 ObjectInputStream in = new ObjectInputStream(file);
                 inter = (Interpreter) in.readObject();
                 in.close();
@@ -62,28 +62,17 @@ public class Open extends Command<InterpreterHandler> {
                 InputString new_nameFile = new InputString(f, Message.openFile());
                 String new_name = new_nameFile.value();
 
-                file = new File(new_name+".txt");
+                file = new File(new_name);
 
                 }
 
-                FileInputStream file = new FileInputStream("new_name.ser");
+                FileInputStream file = new FileInputStream(new_name+".ser");
                 ObjectInputStream in = new ObjectInputStream(file);
                 inter = (Interpreter) in.readObject();
                 in.close();
                 file.close();
             }
         }
-
-        catch(InvalidOperation o){
-            
-        }
-        catch(IOException i){
-            
-        }
-        catch(ClassNotFoundException c){
-            
-        }
-            
 
     }
 }

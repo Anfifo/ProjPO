@@ -62,17 +62,25 @@ public class App implements AppIO {
     public static void main(String[] args) {
         //FIXME create main core object
         
+        AppIO app = new App();
+        InterpreterHandler receiver = new InterpreterHandler(app);
+        receiver.newInterpreter();
+
         String datafile = System.getProperty("import"); //$NON-NLS-1$
         if (datafile != null) {
             try {
-                //FIXME read import file into core object (use Parser instance)
+
+                Program prog = NewParser.parseFile(datafile, "import", receiver);
+
+                receiver.getInterpreter().addProgram(prog);
+                
             } catch (ParserException e) {
                 // no behavior described: just present the problem
                 e.printStackTrace();
             }
         }
         
-        MainMenu menu = new MainMenu(InterpreterHandler receiver);
+        MainMenu menu = new MainMenu(receiver);
         menu.open();
     }
 }

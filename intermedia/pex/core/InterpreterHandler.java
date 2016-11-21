@@ -16,8 +16,8 @@ public class InterpreterHandler{
 	}
 
 
-	public void setInterpreter(Interpreter interpreter){
-		_interpreter = interpreter;
+	public void newInterpreter(Interpreter interpreter){
+		_interpreter = new Interpreter(_app);
 		_initialized = true;
 	}
 

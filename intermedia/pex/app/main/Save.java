@@ -30,15 +30,19 @@ public class Save extends Command<InterpreterHandler> {
             Form f = new Form();
             InputString nameFile = new InputString(f, Message.saveAs());
             f.parse();
+            
             File file = null;
+            
             String name = nameFile.value();
-            file = new File(name+".txt");
+            
+            file = new File(name);
+            
             if ( !file.exists() ) {
                 Form f = new Form();
                 InputString nameFile = new InputString(f, Message.newSaveAs());
                 f.parse
                 name = nameFile.value();
-                file = File(name+".txt");
+                file = File(name);
             }
 
             if( !(file.createNewFile()) ){
@@ -48,20 +52,13 @@ public class Save extends Command<InterpreterHandler> {
 
            
 
-            FileOutputStream file = new FileOutputStream("name.ser");
+            FileOutputStream file = new FileOutputStream(name+".ser");
             ObjectOutputStream out = new ObjectOutputStream(file);
+            
             out.writeObject(entity().getInterpreter() );
             out.close();
             file.close();
 
         }
-
-        catch(InvalidOperation o){
-            
-        }
-        catch(IOException i){
-            
-        }
-
     }
 }

@@ -1,6 +1,6 @@
 package pex.core.expression.compositeexpression;
 
-import pex.core.expression.literal;
+import pex.core.expression.literal.Literal;
 
 public class Readi extends CompositeExpression{
 
@@ -9,7 +9,7 @@ public class Readi extends CompositeExpression{
 	 * @return the string representation
 	 */
 	public String getAsText(){
-
+		return "(readi)";
 	}
 
 

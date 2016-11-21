@@ -37,9 +37,8 @@ public class ReadProgram extends Command<InterpreterHandler> {
         }
         
         else{
-            String progName = nameFile.value().substring(0, (nameFile.value().Length - 4));
 
-            Program prog = NewParser.parseFile(nameFile.value(), progName, entity());
+            Program prog = NewParser.parseFile(nameFile.value(), nameFile.value(), entity());
 
             entity().getInterpreter().addProgram(prog);
         }

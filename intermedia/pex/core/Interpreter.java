@@ -11,8 +11,7 @@ import pex.core.expression.literal.Literal;
 
 
 
-
-public class Interpreter{
+public class Interpreter implements java.io.Serializable{
 	private List<Program> _programList;
 	
 	private Map<String, Identifier> _identifiersMap;

@@ -23,6 +23,6 @@ public class New extends Command<InterpreterHandler> {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        entity().setInterpreter(entity().getAppIO());
+        entity().newInterpreter();
     }
 }
