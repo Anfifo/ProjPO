@@ -1,6 +1,7 @@
-package pex.core.expression.compositeexpression.variadicexpression;
+package pex.core.expression.compositeexpression.binaryexpression;
 
 /**
+ * 
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -10,44 +11,25 @@ package pex.core.expression.compositeexpression.variadicexpression;
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 
-import java.util.*;
 
-
-public class Print extends VariadicExpression{
+public class While extends BinaryExpression{
 
 	/**
 	 * default Constructor
-	 * @param  exp1 List with all "arguments"
+	 * @param  exp1 first argument expression
+	 * @param  exp2 second argument expression
 	 */
-	public Print(List <Expression> expressions){
-		super(expressions);
+	public While(Expression exp1, Expression exp2){
+		super(exp1, exp2);
 	}
-
-
-
 
 	/**
 	 * creates and returns the string representation of the class
 	 * @return the string representation
 	 */
 	public String getAsText(){
- 		List<Expression> expressions = super.getArguments();
-		
-		int size = expressions.size();
-		
-		int i;
-
-		String output = "(print";
-
-		for( i = 0; i < size; i++){
-			output += " " + expressions.get(i).getAsText();
-		}
-		output += ")";
- 
-		return output;
+		return "(while "+ super.getFirstArgument().getAsText() +" "+  super.getSecondArgument().getAsText() + ")";
 	}
-
-
 
 
 	/**

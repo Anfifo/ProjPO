@@ -35,7 +35,7 @@ public class Print extends VariadicExpression{
 		
 		int size = expressions.size();
 		
-		int i;
+		int i = 0;
 
 		String output = "(print";
 

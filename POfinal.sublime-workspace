@@ -1,0 +1,585 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getLista"
+			],
+			[
+				"add",
+				"addToList"
+			],
+			[
+				"In",
+				"InvalidOperation"
+			],
+			[
+				"File",
+				"FileNotFoundException"
+			],
+			[
+				"Literal",
+				"Literal"
+			],
+			[
+				"new",
+				"NewProgram"
+			],
+			[
+				"program",
+				"programCounter"
+			],
+			[
+				"_",
+				"_secondArgument"
+			],
+			[
+				"Inter",
+				"InterpreterHandler"
+			],
+			[
+				"_i",
+				"_initialized"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"Id",
+				"Identifier"
+			],
+			[
+				"ide",
+				"_identifiers"
+			],
+			[
+				"_p",
+				"_programCounter"
+			],
+			[
+				"ind",
+				"_identifiers"
+			],
+			[
+				"SACO",
+				"OPERACAO_SACO_AZUL"
+			],
+			[
+				"COMANDO",
+				"COMANDO_SACO_AZUL"
+			],
+			[
+				"id",
+				"idConta1"
+			],
+			[
+				"account",
+				"account_mutexes"
+			],
+			[
+				"pthread_mutex_",
+				"pthread_mutex_unlock"
+			],
+			[
+				"pthread",
+				"pthread_mutex_lock"
+			],
+			[
+				"OPERACAO_SA",
+				"OPERACAO_SACO_AZUL"
+			],
+			[
+				"Aru",
+				"ArgumentoInvalidoException"
+			],
+			[
+				"NUM",
+				"NUM_MAX_EXTRA_TRABALHADORAS"
+			],
+			[
+				"thread",
+				"thread_counter"
+			],
+			[
+				"im",
+				"imt	import junit.framework.TestCase;"
+			],
+			[
+				"nr",
+				"nr_changes_made"
+			],
+			[
+				"pthread_mutex",
+				"pthread_mutex_unlock"
+			],
+			[
+				"print",
+				"print_changes"
+			],
+			[
+				"prin",
+				"print_changes"
+			],
+			[
+				"contas",
+				"contasSaldos"
+			],
+			[
+				"Exi",
+				"EXIT_FAILURE"
+			],
+			[
+				"OPERA",
+				"OPERACAO_SAIR"
+			],
+			[
+				"NU",
+				"NUM_TRABALHADORAS"
+			],
+			[
+				"OPE",
+				"OPERACAO_SAIR"
+			],
+			[
+				"TA",
+				"NUM_TRABALHADORAS"
+			],
+			[
+				"flag",
+				"flag_sair"
+			],
+			[
+				"mu",
+				"ptread_mutex_t"
+			],
+			[
+				"Vec",
+				"VEC_SIZE"
+			],
+			[
+				"p",
+				"pthread_join"
+			],
+			[
+				"C",
+				"CMD_BUFFER_DIM"
+			],
+			[
+				"com",
+				"comando_t"
+			],
+			[
+				"OP",
+				"OPERACAO_SIMULAR"
+			],
+			[
+				"is",
+				"isRotten"
+			],
+			[
+				"cont",
+				"contasSaldos"
+			],
+			[
+				"exi",
+				"contaExiste"
+			],
+			[
+				"getT",
+				"getTexto"
+			],
+			[
+				"PenWithInk",
+				"PenWithInk"
+			],
+			[
+				"Ink",
+				"InkRepository"
+			],
+			[
+				"pen",
+				"pen"
+			],
+			[
+				"Pen",
+				"PenList"
+			],
+			[
+				"list",
+				"list"
+			],
+			[
+				"ink",
+				"inkCharged"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Cont",
+		"selected_items":
+		[
+			[
+				"Package Cont",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/anfifo/Documents/PO/ProjPO/intermedia"
+	],
+	"file_history":
+	[
+		"/home/anfifo/Desktop/Test.java",
+		"/home/anfifo/Desktop/java",
+		"/home/anfifo/Documents/SO/tests/testDup.c",
+		"/home/anfifo/Documents/SO/tests/potato",
+		"/home/anfifo/Documents/SO/tests/test.txt",
+		"/home/anfifo/Documents/SO/test.c",
+		"/home/anfifo/Desktop/projr/tests/A-008-001-M-ok.outhyp",
+		"/home/anfifo/Desktop/projr/tests/A-008-001-M-ok.out",
+		"/home/anfifo/Desktop/projr/tests/A-008-001-M-ok.diff",
+		"/home/anfifo/Desktop/projr/tests/A-008-001-M-ok.in",
+		"/home/anfifo/Desktop/projr/tests/A-008-001-M-ok.import",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-002-001-M-ok.in",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-002-001-M-ok.out",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/WriteProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/EditProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-002-001-M-ok.import",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-002-003-M-ok.in",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-002-001-M-ok.int",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/tests/A-001-003-M-ok.out",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/makefile",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/runtests.sh",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Print.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/Interpreter.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/CompositeExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ternaryexpression/TernaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/BinaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/UnaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/Identifier.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/Expression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/InterpreterHandler.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/Program.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Sub.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/While.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ternaryexpression/If.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Call.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Neg.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Not.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadI.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadS.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/literal/IntegerLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/literal/Literal.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/literal/StringLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/EvaluatorMenu.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/ShowProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/New.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/NewProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Open.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/ReadProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Save.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/App.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/parser/NewParser.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/And.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Add.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Div.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Eq.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Ge.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Gt.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Le.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Lt.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Mod.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Mul.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Ne.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Or.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Set.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/MainMenu.java",
+		"/home/anfifo/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/anfifo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/AddExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/make",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/CompositeExpression.Java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Message.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Readi.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Reads.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/ProgramCommand.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/Label.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Label.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/Interpreter.java ",
+		"/home/anfifo/Downloads/ap7/data.txt",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/AppIO.java",
+		"/home/anfifo/Desktop/exercicio3/README",
+		"/home/anfifo/Desktop/exercicio3/contas.h",
+		"/home/anfifo/Desktop/exercicio3/inputProcessing.c",
+		"/home/anfifo/Desktop/exercicio3/inputProcessing.h",
+		"/home/anfifo/Desktop/exercicio3/contas.c",
+		"/home/anfifo/Desktop/exercicio3/i-banco.c",
+		"/home/anfifo/Desktop/exercicio3/commandlinereader.h",
+		"/home/anfifo/Desktop/exercicio3/commandlinereader.c",
+		"/home/anfifo/Documents/PO/aula09/test.java",
+		"/home/anfifo/Documents/PO/aula09/Dates.java",
+		"/home/anfifo/Documents/PO/aula09/test",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/i-banco.c",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/inputProcessing.c",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/inputProcessing.h",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/commandlinereader.c",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/commandlinereader.h",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/Makefile",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/makefile",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/contas.h",
+		"/home/anfifo/Documents/SO/ProjSO/exercicio3/contas.c",
+		"/home/anfifo/Documents/PO/aula08/exemplo/excepcao/ArgumentoInvalidoException.java",
+		"/home/anfifo/Documents/PO/aula08/exemplo/Exemplo.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/README",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/test.java",
+		"/home/anfifo/Documents/PO/aula08/exemplo/ArgumentoInvalidoException.java",
+		"/home/anfifo/Documents/PO/aula08/example/Exemplo.java",
+		"/home/anfifo/Documents/PO/aula08/example/ArgumentoInvalidoException.java",
+		"/home/anfifo/Desktop/ex pratico/inputProcessing.h",
+		"/home/anfifo/Desktop/ex pratico/i-banco.c",
+		"/home/anfifo/Desktop/ex pratico/inputProcessing.c",
+		"/home/anfifo/Desktop/ex pratico/README",
+		"/home/anfifo/Desktop/ex pratico/contas.h",
+		"/home/anfifo/Desktop/ex pratico/contas.c",
+		"/home/anfifo/Desktop/ex pratico/commandlinereader.c",
+		"/home/anfifo/Desktop/ex pratico/commandlinereader.h",
+		"/home/anfifo/Desktop/ex pratico/Makefile",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/player/HumanPlayer.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ShowGame.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ShowNumberOfGames.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/Player2Victories.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/main/MainMenu.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ViewData.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/core/ResultadoJogo.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/core/JogoGalo.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/core/AplicacaoJogoGalo.java",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/core/AplicacaoJogoGalo",
+		"/home/anfifo/Documents/PO/aula07/jogogalo/core/Peca.java"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"int",
+			"_changedFlag",
+			"file",
+			"Input",
+			"inter",
+			"Argument",
+			"txt",
+			"_program",
+			"programCounter",
+			"_programCounter",
+			"Interpreter",
+			"interpreter",
+			"Interpreter",
+			"TT_WORD",
+			"_identifierList",
+			"console",
+			"InterpreterHandler",
+			"Integer",
+			"/*FIXME Receiver class*/",
+			"_identifiers",
+			"OPERACAO_SACO_AZUL",
+			"COMANDO_LER_SALDO",
+			"*/\n",
+			"saldo",
+			"NUM_Tra",
+			"thread_pool",
+			"estaLivre",
+			"JogoGalo",
+			"}\n",
+			"randomcounter",
+			"BUFFER_SIZE",
+			"creditar",
+			"1",
+			"accounts_in_use",
+			"dualshock",
+			"flag",
+			"pthread_mutex_t",
+			"useless",
+			"10",
+			"20",
+			"100",
+			"pid_vector",
+			"novoSaldo",
+			"novo_saldo",
+			"simular",
+			"-c",
+			"MAX_PROCESSES",
+			"@",
+			"main",
+			"i",
+			"True",
+			"livro1",
+			"update_check",
+			"update",
+			"InkRepository",
+			"const",
+			"~&",
+			"'\n",
+			"p2",
+			"owner",
+			"const",
+			"#",
+			"repositoryCount",
+			"PenWithInk",
+			"CAPACITY",
+			"capacity",
+			"_repositoryCount",
+			"chardbrand"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "POfinal.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

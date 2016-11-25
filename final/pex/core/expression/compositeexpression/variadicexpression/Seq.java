@@ -13,13 +13,13 @@ import pex.core.expression.Expression;
 import java.util.*;
 
 
-public class Print extends VariadicExpression{
+public class Seq extends VariadicExpression{
 
 	/**
 	 * default Constructor
 	 * @param  exp1 List with all "arguments"
 	 */
-	public Print(List <Expression> expressions){
+	public Seq(List <Expression> expressions){
 		super(expressions);
 	}
 
@@ -31,13 +31,14 @@ public class Print extends VariadicExpression{
 	 * @return the string representation
 	 */
 	public String getAsText(){
- 		List<Expression> expressions = super.getArguments();
+		List<Expression> expressions = super.getArguments();
 		
 		int size = expressions.size();
 		
-		int i;
+		int i = 0;
 
-		String output = "(print";
+		String output = "(seq ";
+
 
 		for( i = 0; i < size; i++){
 			output += " " + expressions.get(i).getAsText();

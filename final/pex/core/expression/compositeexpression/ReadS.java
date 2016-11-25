@@ -1,4 +1,4 @@
-package pex.core.expression.compositeexpression.variadicexpression;
+package pex.core.expression.compositeexpression;
 
 /**
  * @author Grupo 31
@@ -10,45 +10,20 @@ package pex.core.expression.compositeexpression.variadicexpression;
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 
-import java.util.*;
+public class ReadS extends CompositeExpression{
 
 
-public class Seq extends VariadicExpression{
-
-	/**
-	 * default Constructor
-	 * @param  exp1 List with all "arguments"
-	 */
-	public Seq(List <Expression> expressions){
-		super(expressions);
+	public ReadS(){
+		
 	}
-
-
-
 
 	/**
 	 * creates and returns the string representation of the class
 	 * @return the string representation
 	 */
 	public String getAsText(){
-		List<Expression> expressions = super.getArguments();
-		
-		int size = expressions.size();
-		
-		int i;
-
-		String output = "(seq";
-
-
-		for( i = 0; i < size; i++){
-			output += " " + expressions.get(i).getAsText();
-		}
-		output += ")";
- 
-		return output;
+		return "(reads)";
 	}
-
-
 
 
 	/**

@@ -1,4 +1,4 @@
-package pex.core.expression.compositeexpression.variadicexpression;
+package pex.core.expression.compositeexpression.ternaryexpression;
 
 /**
  * @author Grupo 31
@@ -10,44 +10,25 @@ package pex.core.expression.compositeexpression.variadicexpression;
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 
-import java.util.*;
-
-
-public class Print extends VariadicExpression{
+public class If extends TernaryExpression{
 
 	/**
 	 * default Constructor
-	 * @param  exp1 List with all "arguments"
+	 * @param  exp1 first argument expression
+	 * @param  exp2 second argument expression
+	 * @param  exp3 third argument expression
 	 */
-	public Print(List <Expression> expressions){
-		super(expressions);
+	public If(Expression exp1, Expression exp2, Expression exp3){
+		super(exp1, exp2, exp3);
 	}
-
-
-
 
 	/**
 	 * creates and returns the string representation of the class
 	 * @return the string representation
 	 */
 	public String getAsText(){
- 		List<Expression> expressions = super.getArguments();
-		
-		int size = expressions.size();
-		
-		int i;
-
-		String output = "(print";
-
-		for( i = 0; i < size; i++){
-			output += " " + expressions.get(i).getAsText();
-		}
-		output += ")";
- 
-		return output;
+		return "(if "+ super.getFirstArgument().getAsText() + " " +  super.getSecondArgument().getAsText() + " " + super.getThirdArgument().getAsText() +")";
 	}
-
-
 
 
 	/**
