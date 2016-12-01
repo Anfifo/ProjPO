@@ -42,6 +42,5 @@ public class NewProgram extends Command<InterpreterHandler>{
 
         Program program = new Program (entity().getInterpreter(), name.value());
         entity().getInterpreter().addProgram(program);
-        entity().applyChange();
     }
 }

@@ -12,6 +12,7 @@ package pex.core.expression.compositeexpression.binaryexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
+import pex.core.expression.ExpressionVisitor;
 
 
 public abstract class BinaryExpression extends CompositeExpression{
@@ -30,5 +31,11 @@ public abstract class BinaryExpression extends CompositeExpression{
 
 	public Expression getSecondArgument(){
 		return _secondArgument;
+	}
+
+	public abstract String getOperator();
+
+	public String getAsText(){
+		return "("+ this.getOperator() + " "+ getFirstArgument().getAsText() +" "+  getSecondArgument().getAsText() + ")";
 	}
 }

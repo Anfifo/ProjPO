@@ -9,6 +9,7 @@ package pex.core.expression.compositeexpression.variadicexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
+import pex.core.expression.ExpressionVisitor;
 
 import java.util.*;
 
@@ -27,25 +28,11 @@ public class Seq extends VariadicExpression{
 
 
 	/**
-	 * creates and returns the string representation of the class
+	 * returns the operator that represents this composite expression
 	 * @return the string representation
 	 */
-	public String getAsText(){
-		List<Expression> expressions = super.getArguments();
-		
-		int size = expressions.size();
-		
-		int i = 0;
-
-		String output = "(seq ";
-
-
-		for( i = 0; i < size; i++){
-			output += " " + expressions.get(i).getAsText();
-		}
-		output += ")";
- 
-		return output;
+	public String getOperator(){
+		return "seq";
 	}
 
 
@@ -57,5 +44,10 @@ public class Seq extends VariadicExpression{
 	 */
 	public Literal evaluate(){
 		return null; //FIXME needs implementation
+	}
+
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }

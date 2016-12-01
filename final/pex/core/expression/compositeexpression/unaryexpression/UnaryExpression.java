@@ -24,4 +24,10 @@ public abstract class UnaryExpression extends CompositeExpression{
 	public Expression getArgument(){
 		return _argument;
 	}
+
+	public abstract String getOperator();
+
+	public String getAsText(){
+		return "("+ this.getOperator() +" "+ this.getArgument().getAsText() +")";
+	}
 }

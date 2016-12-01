@@ -12,7 +12,7 @@ package pex.core.expression;
  */
 
 import pex.core.expression.literal.Literal;
-
+import pex.core.expression.ExpressionEvaluateVisitor;
 
 
 public abstract class Expression implements java.io.Serializable{
@@ -27,4 +27,6 @@ public abstract class Expression implements java.io.Serializable{
 	 * @return the result of it's execution.
 	 */
 	public abstract Literal evaluate();
+
+	public abstract void accept (ExpressionVisitor expressionVisitor);
 }

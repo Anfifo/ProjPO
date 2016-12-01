@@ -5,7 +5,11 @@
 		[
 			[
 				"get",
-				"getLista"
+				"getFileName"
+			],
+			[
+				"save",
+				"saveInterpreter"
 			],
 			[
 				"add",
@@ -228,7 +232,7 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "Package Cont",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -240,7 +244,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 392.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -261,10 +265,76 @@
 	},
 	"expanded_folders":
 	[
-		"/home/anfifo/Documents/PO/ProjPO/intermedia"
+		"/home/anfifo/Documents/PO/ProjPO/final",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal"
 	],
 	"file_history":
 	[
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/BinaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Add.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/And.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Div.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Eq.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Ge.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Gt.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Le.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Lt.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Mod.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Mul.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Ne.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Or.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Set.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Sub.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/While.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression/If.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Call.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Neg.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Not.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Print.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadI.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadS.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/IntegerLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/StringLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Identifier.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Expression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionEvaluateVisitor.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionVisitor.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/InterpreterHandler.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Interpreter.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression/TernaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/UnaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Program.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Save.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Open.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/New.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/WriteProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/ReadProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/NewProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-008-006-M-ok.diff",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-008-004-M-ok.diff",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-008-003-M-ok.diff",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-005-003-M-ok.diff",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-008-003-M-okB.diff",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-005-003-M-ok.in",
+		"/home/anfifo/Documents/PO/ProjPO/final/tests/A-002-004-M-ok.diff",
+		"/home/anfifo/Documents/PO/ProjPO/POfinal.sublime-project",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadI.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Print.java",
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/prim.tex",
+		"/home/anfifo/Documents/PO/ProjPO/final/runtests.sh",
 		"/home/anfifo/Desktop/Test.java",
 		"/home/anfifo/Desktop/java",
 		"/home/anfifo/Documents/SO/tests/testDup.c",
@@ -287,8 +357,6 @@
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/makefile",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/runtests.sh",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Print.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/Interpreter.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/CompositeExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ternaryexpression/TernaryExpression.java",
@@ -304,7 +372,6 @@
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Call.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Neg.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/unaryexpression/Not.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadI.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadS.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/literal/IntegerLiteral.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/literal/Literal.java",
@@ -340,59 +407,7 @@
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Message.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Readi.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Reads.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/ProgramCommand.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/Label.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Label.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/Interpreter.java ",
-		"/home/anfifo/Downloads/ap7/data.txt",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/AppIO.java",
-		"/home/anfifo/Desktop/exercicio3/README",
-		"/home/anfifo/Desktop/exercicio3/contas.h",
-		"/home/anfifo/Desktop/exercicio3/inputProcessing.c",
-		"/home/anfifo/Desktop/exercicio3/inputProcessing.h",
-		"/home/anfifo/Desktop/exercicio3/contas.c",
-		"/home/anfifo/Desktop/exercicio3/i-banco.c",
-		"/home/anfifo/Desktop/exercicio3/commandlinereader.h",
-		"/home/anfifo/Desktop/exercicio3/commandlinereader.c",
-		"/home/anfifo/Documents/PO/aula09/test.java",
-		"/home/anfifo/Documents/PO/aula09/Dates.java",
-		"/home/anfifo/Documents/PO/aula09/test",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/i-banco.c",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/inputProcessing.c",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/inputProcessing.h",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/commandlinereader.c",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/commandlinereader.h",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/Makefile",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/makefile",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/contas.h",
-		"/home/anfifo/Documents/SO/ProjSO/exercicio3/contas.c",
-		"/home/anfifo/Documents/PO/aula08/exemplo/excepcao/ArgumentoInvalidoException.java",
-		"/home/anfifo/Documents/PO/aula08/exemplo/Exemplo.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/README",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/test.java",
-		"/home/anfifo/Documents/PO/aula08/exemplo/ArgumentoInvalidoException.java",
-		"/home/anfifo/Documents/PO/aula08/example/Exemplo.java",
-		"/home/anfifo/Documents/PO/aula08/example/ArgumentoInvalidoException.java",
-		"/home/anfifo/Desktop/ex pratico/inputProcessing.h",
-		"/home/anfifo/Desktop/ex pratico/i-banco.c",
-		"/home/anfifo/Desktop/ex pratico/inputProcessing.c",
-		"/home/anfifo/Desktop/ex pratico/README",
-		"/home/anfifo/Desktop/ex pratico/contas.h",
-		"/home/anfifo/Desktop/ex pratico/contas.c",
-		"/home/anfifo/Desktop/ex pratico/commandlinereader.c",
-		"/home/anfifo/Desktop/ex pratico/commandlinereader.h",
-		"/home/anfifo/Desktop/ex pratico/Makefile",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/player/HumanPlayer.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ShowGame.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ShowNumberOfGames.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/Player2Victories.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/main/MainMenu.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/textui/view/ViewData.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/core/ResultadoJogo.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/core/JogoGalo.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/core/AplicacaoJogoGalo.java",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/core/AplicacaoJogoGalo",
-		"/home/anfifo/Documents/PO/aula07/jogogalo/core/Peca.java"
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/ProgramCommand.java"
 	],
 	"find":
 	{
@@ -410,6 +425,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"abstract",
+			"void",
+			"{\n\n	}",
+			"super.",
+			"getProgramName",
 			"int",
 			"_changedFlag",
 			"file",
@@ -553,12 +573,12 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

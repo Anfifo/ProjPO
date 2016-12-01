@@ -60,7 +60,6 @@ public class ReadProgram extends Command<InterpreterHandler> {
             try{
                 Program prog = parser.parseFile(nameFile.value(), nameFile.value(), entity());
                 entity().getInterpreter().addProgram(prog);
-                entity().applyChange();
             }
             catch(ParserException o){ o.printStackTrace(); }
         }

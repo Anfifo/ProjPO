@@ -23,4 +23,23 @@ public abstract class VariadicExpression extends CompositeExpression{
 	public List<Expression> getArguments(){
 		return _arguments;
 	}
+
+	public abstract String getOperator();
+
+
+	public String getAsText(){
+
+		int size = _arguments.size();
+		
+		int i = 0;
+
+		String output = "(" + this.getOperator();
+
+		for( i = 0; i < size; i++){
+			output += " " + _arguments.get(i).getAsText();
+		}
+		output += ")";
+ 
+		return output;
+	}
 }

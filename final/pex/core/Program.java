@@ -15,6 +15,8 @@ package pex.core;
 
 /* including java Lists and Collections*/
 import java.util.*;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
@@ -148,7 +150,32 @@ public class Program implements java.io.Serializable{
 	 * Returns this program's String name which is unique to each program.
 	 * @return String name
 	 */
-	public String getProgramName(){
+	public String getName(){
 		return _name;
+	}
+
+
+
+
+	/**
+	 * Saves the program into a file with the given name. This functions throws
+	 * NullPointerException if given fileName is Null and FileNotFoun Exception
+	 * if this exception came up during the execution.
+	 * @param  fileName              name with which the file will be saved
+	 * @throws NullPointerException  if given name is Null
+	 * @throws FileNotFoundException if such Exception occured on it's execution
+	 */
+	public void save(String fileName) throws NullPointerException, FileNotFoundException{
+
+		if (fileName == null)
+			throw new NullPointerException();
+		try{
+			PrintWriter writer = new PrintWriter(fileName);
+	        writer.println(this.getAsText());
+	        writer.close();
+	    }
+	    catch(FileNotFoundException fnf){
+	    	throw fnf;
+	    }
 	}
 }

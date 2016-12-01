@@ -45,4 +45,10 @@ public abstract class TernaryExpression extends CompositeExpression{
 		return _thirdArgument; 
 	}
 
+	public abstract String getOperator();
+
+	public String getAsText(){
+		return "("+ this.getOperator() + " "+ this.getFirstArgument().getAsText() + " " +  this.getSecondArgument().getAsText() + " " + this.getThirdArgument().getAsText() +")";
+	}
+
 }

@@ -45,45 +45,30 @@ public class Open extends Command<InterpreterHandler> {
     public final void execute() throws InvalidOperation{
         Interpreter interpreter = null;
         int i = 0;
-
+        String name = "";
+        
         try{
+
             Form f = new Form();
             InputString nameFile = new InputString(f, Message.openFile());
             f.parse();    
 
-            String name = nameFile.value();
-            File file = null;
+            name = nameFile.value();
 
-            file = new File(name);
+            entity().openInterpreter(name);
 
-            if (file.exists()) {
+        }
+        catch(NullPointerException np){
+            Display display = new Display();
 
-                FileInputStream fileStream = new FileInputStream(name);
-                ObjectInputStream in = new ObjectInputStream(fileStream);
-                interpreter = (Interpreter) in.readObject();
-
-                entity().setInterpreter(interpreter);
-                entity().setFileName(name);
-
-                in.close();
-                fileStream.close();
-            }
-
-            else{
-                Display display = new Display();
-
-                display.add(Message.fileNotFound(name));
-                display.display();
-            }
+            display.add(Message.fileNotFound(name));
+            display.display();
         }
         catch(FileNotFoundException f){
-            f.printStackTrace();
-        }
-        catch(ClassNotFoundException o){
-            o.printStackTrace();
-        }
-        catch(IOException io){
-            io.printStackTrace();
+            Display display = new Display();
+
+            display.add(Message.fileNotFound(name));
+            display.display();
         }
     }
 }

@@ -7,6 +7,11 @@ package pex.core.expression.literal;
  * @version 1.0
  */
 
+
+import pex.core.expression.ExpressionVisitor;
+
+
+
 public class StringLiteral extends Literal{
 	String _value;
 
@@ -29,5 +34,10 @@ public class StringLiteral extends Literal{
 	 */
 	public Literal evaluate(){
 		return this;
+	}
+
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }

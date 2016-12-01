@@ -9,6 +9,8 @@ package pex.core.expression.compositeexpression.ternaryexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
+import pex.core.expression.ExpressionVisitor;
+
 
 public class If extends TernaryExpression{
 
@@ -23,11 +25,11 @@ public class If extends TernaryExpression{
 	}
 
 	/**
-	 * creates and returns the string representation of the class
+	 * returns the operator that represents this composite expression
 	 * @return the string representation
 	 */
-	public String getAsText(){
-		return "(if "+ super.getFirstArgument().getAsText() + " " +  super.getSecondArgument().getAsText() + " " + super.getThirdArgument().getAsText() +")";
+	public String getOperator(){
+		return "if";
 	}
 
 
@@ -37,5 +39,9 @@ public class If extends TernaryExpression{
 	 */
 	public Literal evaluate(){
 		return null; //FIXME needs implementation
+	}
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }

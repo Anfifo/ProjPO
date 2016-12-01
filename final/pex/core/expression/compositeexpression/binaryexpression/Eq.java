@@ -11,6 +11,7 @@ package pex.core.expression.compositeexpression.binaryexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
+import pex.core.expression.ExpressionVisitor;
 
 
 public class Eq extends BinaryExpression{
@@ -25,11 +26,11 @@ public class Eq extends BinaryExpression{
 	}
 
 	/**
-	 * creates and returns the string representation of the class
+	 * returns the operator that represents this composite expression
 	 * @return the string representation
 	 */
-	public String getAsText(){
-		return "(eq "+ super.getFirstArgument().getAsText() +" "+  super.getSecondArgument().getAsText() + ")";
+	public String getOperator(){
+		return "eq";
 	}
 
 
@@ -39,5 +40,10 @@ public class Eq extends BinaryExpression{
 	 */
 	public Literal evaluate(){
 		return null; //FIXME needs implementation
+	}
+
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }

@@ -13,6 +13,15 @@ package pex.core;
 
 import pex.AppIO;
 
+// File saving imports
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.FileNotFoundException;
+
+
 
 public class InterpreterHandler{
 	/**
@@ -35,11 +44,7 @@ public class InterpreterHandler{
 	 */
 	private String _fileName;
 	
-	/**
-	 * A flag that's meant to tracks wether there was a change or not in the program.<p>
-	 * This flag is changed by methods and is up to it's user to change it (applyChange) and (saveChange).
-	 */
-	private boolean _changedFlag;
+
 
 
 
@@ -52,7 +57,6 @@ public class InterpreterHandler{
 		_initialized = false;
 		_app = app;
 		_fileName = null;
-		_changedFlag = true;
 	}
 
 
@@ -118,30 +122,69 @@ public class InterpreterHandler{
 
 
 
+
 	/**
-	 * Function that changes the ChangeFlag to true. Any change of this flag is made mannualy through saveChange and applyChange methods.
+	 * saves the Interpreter to the file the Handler is associated to
+	 * @throws NullPointerException if no file is associated to handler
 	 */
-	public void applyChange(){
-		_changedFlag = true;
+	public void saveInterpreter() throws NullPointerException{
+		if(_fileName == null)
+			throw new NullPointerException();
+
+		_interpreter.save(this.getFileName());
 	}
 
 
 
 	/**
-	 * Function that changes the ChangeFlag to false. Any change of this flag is made mannualy through saveChange and applyChange methods.
+	 * Saves the Interpreter in a file with the given name
+	 * at the same time associates the Handler to this (file)name given.
+	 * @param name [description]
 	 */
-	public void saveChange(){
-		_changedFlag = false;
+	public void saveInterpreter(String name){
+		this.setFileName(name);
+		this.saveInterpreter();
 	}
+
+
 
 
 
 	/**
-	 * returns the status of the "changedFlag".
-	 * @return the status of the changedFlag.
+	 * Loads a new interpreter into the Handler in the given file's name
+	 * @param  name                  name of the file with an interpreter saved
+	 * @throws NullPointerException  if no file exists with such name
+	 * @throws FileNotFoundException if file wasn't found
 	 */
-	public boolean getChangedStatus(){
-		return _changedFlag;
-	}
+	public void openInterpreter(String name) throws NullPointerException, FileNotFoundException{
+		try{
+			File file = new File(name);
 
+			if (file.exists()) {
+
+				FileInputStream fileStream = new FileInputStream(name);
+				ObjectInputStream in = new ObjectInputStream(fileStream);
+				
+				Interpreter interpreter = (Interpreter) in.readObject();
+
+				_interpreter = interpreter;
+
+				_fileName = name;
+
+				in.close();
+				fileStream.close();
+			}
+			else
+				throw new NullPointerException();
+		}
+		catch(FileNotFoundException f){
+            throw f;
+        }
+        catch(ClassNotFoundException o){
+            o.printStackTrace();
+        }
+        catch(IOException io){
+            io.printStackTrace();
+        }
+	}
 }

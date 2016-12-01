@@ -20,13 +20,20 @@ import pex.core.expression.literal.Literal;
 
 import java.util.*;
 
+// File saving imports
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 
 public class Interpreter implements java.io.Serializable{
 
 	/**
 	 * A list of all programs that the interpreter holds.
 	 */
-	private List<Program> _programList;
+	private Map<String, Program> _programList;
 	
 	/**
 	 * A map/table of all used identifiers in the programs.
@@ -38,7 +45,10 @@ public class Interpreter implements java.io.Serializable{
 	 */
 	private AppIO _app;
 	
-
+	/**
+	 * flag to keep track of interpreter's saved/unsaved status
+	 */
+	private boolean _changedFlag;
 
 
 	/**
@@ -47,8 +57,9 @@ public class Interpreter implements java.io.Serializable{
 	 */
 	public Interpreter (AppIO app){
 		_app = app;
-		_programList = new ArrayList<>();
+		_programList = new HashMap<String, Program>();
 		_identifiersMap = new HashMap<String, Identifier>();
+		_changedFlag = true;
 	}
 
 
@@ -61,6 +72,8 @@ public class Interpreter implements java.io.Serializable{
 	 * @param value value to be given to the Identifier id
 	 */
 	public void setIdentifierValue(Identifier id, Literal value){
+		_changedFlag = true;
+
 		if(_identifiersMap.get(id.getAsText()) == null)
 			_identifiersMap.put(id.getAsText(), id);
 		
@@ -88,16 +101,12 @@ public class Interpreter implements java.io.Serializable{
 	 * @param program to be added to interpreter
 	 */
 	public void addProgram(Program program){
-		int i;
-		int programCounter = _programList.size();
+		_changedFlag = true;
 
-		for ( i = 0; i < programCounter ; i++)
-			if (program.getProgramName().equals(_programList.get(i).getProgramName())){
-				_programList.set(i, program);
-				return;
-			}
-		
-		_programList.add(program);
+		if(_programList.containsKey(program.getName()) ){
+			_programList.remove(program.getName());
+		}
+		_programList.put(program.getName(),program);
 	}
 
 
@@ -109,16 +118,8 @@ public class Interpreter implements java.io.Serializable{
 	 * @return      owner of the name
 	 */
 	public Program getProgram(String name){
-		int i;
-		int programCounter = _programList.size();
-		for ( i = 0; i < programCounter ; i++)
-			if (name.equals(_programList.get(i).getProgramName()))
-				return _programList.get(i);
-
-		return null;
+		return _programList.get(name);
 	}
-
-
 
 
 
@@ -128,6 +129,34 @@ public class Interpreter implements java.io.Serializable{
 	 */
 	public AppIO getAppIO(){
 		return _app;
+	}
+
+
+
+	/**
+	 * Saves the interpreter into a file with the given name.
+	 * In case no change was made to the interpreter since last save
+	 * the interpreter won't save.
+	 * @param name to be assigned to the file.
+	 */
+	public void save(String name){
+		try{
+
+			if(_changedFlag == false)
+				return;
+
+			FileOutputStream fileStream = new FileOutputStream(name);
+			ObjectOutputStream out = new ObjectOutputStream(fileStream);
+			
+			out.writeObject(this);
+			out.close();
+			fileStream.close();
+
+			_changedFlag = false;
+		}
+		catch(IOException io){
+			io.printStackTrace();
+		}
 	}
 
 }

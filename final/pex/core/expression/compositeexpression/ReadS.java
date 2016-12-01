@@ -9,6 +9,7 @@ package pex.core.expression.compositeexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
+import pex.core.expression.ExpressionVisitor;
 
 public class ReadS extends CompositeExpression{
 
@@ -32,5 +33,10 @@ public class ReadS extends CompositeExpression{
 	 */
 	public Literal evaluate(){
 		return null; //FIXME needs implementation
+	}
+
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }

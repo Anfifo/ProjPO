@@ -16,7 +16,7 @@ package pex.app.main;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.File;
-import java.io.PrintWriter;
+
 
 import pex.core.Interpreter;
 import pex.core.InterpreterHandler;
@@ -47,14 +47,16 @@ public class WriteProgram extends Command<InterpreterHandler> {
         Display display = new Display();
 
         try{
+            //request program's name
             Form f = new Form();
             InputString prog_name = new InputString(f, Message.requestProgramId());
             f.parse();
-            Interpreter interpreter = entity().getInterpreter();
-            Program program = interpreter.getProgram(prog_name.value());
+
+            String name = prog_name.value();
+            Program program = entity().getInterpreter().getProgram(name);
             
 
-
+            //request file's name
             Form form2 = new Form();
             InputString prog_file = new InputString(form2, Message.programFileName());
             form2.parse();
@@ -67,13 +69,9 @@ public class WriteProgram extends Command<InterpreterHandler> {
             }
             
             else {
-                String prog_txt = program.getAsText();
-                PrintWriter writer = new PrintWriter(fileName);
-                writer.println(prog_txt);
-                writer.close();
+                entity().getInterpreter().getProgram(name).save(fileName);
+
             }
-
-
         }
 
         catch(FileNotFoundException o){

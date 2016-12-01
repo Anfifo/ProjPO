@@ -12,6 +12,8 @@ package pex.core.expression;
 
 import pex.core.expression.literal.Literal;
 import java.util.*;
+import pex.core.expression.ExpressionVisitor;
+
 
 public class Identifier extends Expression{
 	/**
@@ -24,12 +26,6 @@ public class Identifier extends Expression{
 	 */
 	private Literal _value;
 
-	/**
-	 * flag to keep track whether the identifier has an value associated or not.
-	 */
-	private boolean _initialized;
-
-
 
 
 	/**
@@ -38,7 +34,6 @@ public class Identifier extends Expression{
 	 */
 	public Identifier(String name){
 		_name = name;
-		_initialized = false;
 		// missing default initialization of Literal value
 	}
 
@@ -53,7 +48,6 @@ public class Identifier extends Expression{
 	public Identifier(String name, Literal value){
 		_name = name;
 		_value = value;
-		_initialized = true;
 	}
 
 
@@ -75,7 +69,6 @@ public class Identifier extends Expression{
 	 */
 	public void setIdentifierValue(Literal value){
 		_value = value;
-		_initialized = true;
 	}
 
 
@@ -100,21 +93,8 @@ public class Identifier extends Expression{
 
 
 
-
-	/**
-	 * compares given object to this identifier, identifiers are equal if they have the same name.
-	 * @param  object object to be compared to
-	 * @return        true if they're equal, false if they're different or object is not of instance Identifier.
-	 */
-	public boolean equals(Object object){
-
-	    if (object instanceof Identifier) {
-	        Identifier that = (Identifier) object;
-	        return that.getAsText().equals(this.getAsText());
-    	}
-    	
-    	return false;
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
-
 
 }

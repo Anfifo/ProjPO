@@ -9,6 +9,7 @@ package pex.core.expression.compositeexpression.unaryexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
+import pex.core.expression.ExpressionVisitor;
 
 
 public class Neg extends UnaryExpression{
@@ -22,11 +23,11 @@ public class Neg extends UnaryExpression{
 	}
 
 	/**
-	 * creates and returns the string representation of the class
+	 * returns the operator that represents this composite expression
 	 * @return the string representation
 	 */
-	public String getAsText(){
-		return "(neg "+ super.getArgument().getAsText() +")";
+	public String getOperator(){
+		return "neg";
 	}
 
 
@@ -36,5 +37,10 @@ public class Neg extends UnaryExpression{
 	 */
 	public Literal evaluate(){
 		return null; //FIXME needs implementation
+	}
+
+	
+	public void accept(ExpressionVisitor visitor){
+		visitor.visit(this);
 	}
 }
