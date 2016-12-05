@@ -8,10 +8,13 @@ package pex.core.expression.literal;
  */
 
 import pex.core.expression.Expression;
+import pex.core.ExpressionVisitor;
+
+
 
 public abstract class Literal extends Expression{
 
-	public abstract Literal evaluate();
-
 	public abstract String getAsText();
+
+	public abstract Literal accept(ExpressionVisitor visitor);
 }

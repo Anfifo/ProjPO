@@ -12,6 +12,10 @@ package pex.core.expression.compositeexpression.ternaryexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
+import pex.core.ExpressionVisitor;
+import pex.core.expression.literal.Literal;
+
+
 
 public abstract class TernaryExpression extends CompositeExpression{
 	private Expression _firstArgument;
@@ -51,4 +55,5 @@ public abstract class TernaryExpression extends CompositeExpression{
 		return "("+ this.getOperator() + " "+ this.getFirstArgument().getAsText() + " " +  this.getSecondArgument().getAsText() + " " + this.getThirdArgument().getAsText() +")";
 	}
 
+	public abstract Literal accept(ExpressionVisitor visitor);
 }

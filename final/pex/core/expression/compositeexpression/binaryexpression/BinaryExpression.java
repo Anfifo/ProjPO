@@ -12,7 +12,9 @@ package pex.core.expression.compositeexpression.binaryexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
-import pex.core.expression.ExpressionVisitor;
+import pex.core.ExpressionVisitor;
+import pex.core.expression.literal.Literal;
+
 
 
 public abstract class BinaryExpression extends CompositeExpression{
@@ -33,9 +35,12 @@ public abstract class BinaryExpression extends CompositeExpression{
 		return _secondArgument;
 	}
 
+	public String getAsText(){
+		return "("+ this.getOperator() + " "+ this.getFirstArgument().getAsText() + " " +  this.getSecondArgument().getAsText() +")";
+	}
+
 	public abstract String getOperator();
 
-	public String getAsText(){
-		return "("+ this.getOperator() + " "+ getFirstArgument().getAsText() +" "+  getSecondArgument().getAsText() + ")";
-	}
+
+	public abstract Literal accept(ExpressionVisitor visitor);
 }

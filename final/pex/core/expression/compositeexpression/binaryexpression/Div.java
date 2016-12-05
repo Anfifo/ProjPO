@@ -11,7 +11,7 @@ package pex.core.expression.compositeexpression.binaryexpression;
 
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
-import pex.core.expression.ExpressionVisitor;
+import pex.core.ExpressionVisitor;
 
 
 public class Div extends BinaryExpression{
@@ -43,8 +43,9 @@ public class Div extends BinaryExpression{
 	}
 
 	
-	public void accept(ExpressionVisitor visitor){
-		visitor.visit(this);
+
+	public Literal accept(ExpressionVisitor visitor){
+		return visitor.visit(this);
 	}
 
 }

@@ -9,6 +9,10 @@ package pex.core.expression.compositeexpression.variadicexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.compositeexpression.CompositeExpression;
+import pex.core.ExpressionVisitor;
+import pex.core.expression.literal.Literal;
+
+
 
 import java.util.*;
 
@@ -42,4 +46,7 @@ public abstract class VariadicExpression extends CompositeExpression{
  
 		return output;
 	}
+
+	
+	public abstract Literal accept(ExpressionVisitor visitor);
 }

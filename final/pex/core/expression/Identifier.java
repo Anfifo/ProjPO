@@ -12,7 +12,7 @@ package pex.core.expression;
 
 import pex.core.expression.literal.Literal;
 import java.util.*;
-import pex.core.expression.ExpressionVisitor;
+import pex.core.ExpressionVisitor;
 
 
 public class Identifier extends Expression{
@@ -83,18 +83,8 @@ public class Identifier extends Expression{
 
 
 
-	/**
-	 * Evaluates the Identifier returning it's value.
-	 * @return the result of it's evaluation.
-	 */
-	public Literal evaluate(){
-		return _value; //FIXME might not be proper implemented
-	}
-
-
-
-	public void accept(ExpressionVisitor visitor){
-		visitor.visit(this);
+	public Literal accept(ExpressionVisitor visitor){
+		return visitor.visit(this);
 	}
 
 }

@@ -7,7 +7,8 @@ package pex.core.expression.literal;
  * @version 1.0
  */
 
-import pex.core.expression.ExpressionVisitor;
+
+import pex.core.ExpressionVisitor;
 
 
 public class IntegerLiteral extends Literal{
@@ -25,13 +26,9 @@ public class IntegerLiteral extends Literal{
 		return _value;
 	}
 
-	public Literal evaluate(){
-		return this;
-	}
-
 	
-	public void accept(ExpressionVisitor visitor){
-		visitor.visit(this);
+	public Literal accept(ExpressionVisitor visitor){
+		return visitor.visit(this);
 	}
 
 }

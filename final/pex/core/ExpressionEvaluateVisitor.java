@@ -1,117 +1,147 @@
 package pex.core;
 
+import pex.core.expression.literal.*;
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
+import pex.core.expression.compositeexpression.*;
 import pex.core.expression.compositeexpression.unaryexpression.*;
 import pex.core.expression.compositeexpression.binaryexpression.*;
 import pex.core.expression.compositeexpression.ternaryexpression.*;
 import pex.core.expression.compositeexpression.variadicexpression.*;
-import pex.core.expression.compositeexpression.*;
-import pex.core.expression.literal.*;
 
 public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 	
-	public void visit(Add expression){
+	public ExpressionEvaluateVisitor(){
 
 	}
 
-	public void visit(And expression){
+	public Literal visit(Add expression){
+		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+		return new IntegerLiteral(exp1.intValue() + exp2.intValue());
+	}
+
+	public Literal visit(And expression){
+		return null;
+	}
+
+	public Literal visit(Div expression){
+		return null;
 
 	}
 
-	public void visit(Div expression){
+	public Literal visit(Eq expression){
+		return null;
 
 	}
 
-	public void visit(Eq expression){
+	public Literal visit(Ge expression){
+		return null;
 
 	}
 
-	public void visit(Ge expression){
+	public Literal visit(Gt expression){
+		return null;
 
 	}
 
-	public void visit(Gt expression){
+	public Literal visit(Le expression){
+		return null;
 
 	}
 
-	public void visit(Le expression){
+	public Literal visit(Lt expression){
+		return null;
 
 	}
 
-	public void visit(Lt expression){
+	public Literal visit(Mod expression){
+		return null;
 
 	}
 
-	public void visit(Mod expression){
+	public Literal visit(Mul expression){
+		return null;
 
 	}
 
-	public void visit(Mul expression){
+	public Literal visit(Ne expression){
+		return null;
 
 	}
 
-	public void visit(Ne expression){
+	public Literal visit(Or expression){
+		return null;
 
 	}
 
-	public void visit(Or expression){
+	public Literal visit(Set expression){
+		return null;
 
 	}
 
-	public void visit(Set expression){
+	public Literal visit(Sub expression){
+		return null;
 
 	}
 
-	public void visit(Sub expression){
+	public Literal visit(While expression){
+		return null;
 
 	}
 
-	public void visit(While expression){
+	public Literal visit(If expression){
+		return null;
 
 	}
 
-	public void visit(If expression){
+	public Literal visit(Call expression){
+		return null;
 
 	}
 
-	public void visit(Call expression){
+	public Literal visit(Neg expression){
+		return null;
 
 	}
 
-	public void visit(Neg expression){
+	public Literal visit(Not expression){
+		return null;
 
 	}
 
-	public void visit(Not expression){
+	public Literal visit(Print expression){
+		return null;
 
 	}
 
-	public void visit(Print expression){
+	public Literal visit(Seq expression){
+		return null;
 
 	}
 
-	public void visit(Seq expression){
+	public Literal visit(ReadI expression){
+		return null;
 
 	}
 
-	public void visit(ReadI expression){
+	public Literal visit(ReadS expression){
+		return null;
 
 	}
 
-	public void visit(ReadS expression){
+	public Literal visit(Identifier expression){
+		return null;
 
 	}
 
-	public void visit(Identifier expression){
+	public Literal visit(IntegerLiteral expression){
+		return expression;
 
 	}
 
-	public void visit(IntegerLiteral expression){
-
-	}
-
-	public void visit(StringLiteral expression){
+	public Literal visit(StringLiteral expression){
+		return null;
 		
 	}
 

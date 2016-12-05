@@ -11,7 +11,7 @@ package pex.core.expression.compositeexpression.binaryexpression;
 
 import pex.core.expression.Expression;
 import pex.core.expression.literal.Literal;
-import pex.core.expression.ExpressionVisitor;
+import pex.core.ExpressionVisitor;
 
 
 public class Add extends BinaryExpression{
@@ -33,16 +33,7 @@ public class Add extends BinaryExpression{
 		return "add";
 	}
 
-
-	/**
-	 * returns the literal that represents the Expression
-	 * @return the literal representation of the expression
-	 */
-	public Literal evaluate(){
-		return null; //FIXME needs implementation
-	}
-
-	public void accept(ExpressionVisitor visitor){
-		visitor.visit(this);
+	public Literal accept(ExpressionVisitor visitor){
+		return visitor.visit(this);
 	}
 }

@@ -21,6 +21,8 @@ import java.io.FileNotFoundException;
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
 import pex.core.expression.literal.Literal;
+import pex.core.expression.literal.StringLiteral;
+import pex.core.expression.literal.IntegerLiteral;
 
 public class Program implements java.io.Serializable{
 	
@@ -110,7 +112,13 @@ public class Program implements java.io.Serializable{
 	 * @return the literal that results of it's execution.
 	 */
 	public Literal execute(){
-		return null; //FIXME needs implementationc
+		ExpressionVisitor visitor = new ExpressionEvaluateVisitor();
+
+		Literal result = new IntegerLiteral(0);
+
+		for(Expression exp : _expressions)
+			result = exp.accept(visitor);
+		return result;
 	}
 
 
