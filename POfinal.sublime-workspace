@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"IntegerLiteral"
+			],
+			[
 				"get",
 				"getFileName"
 			],
@@ -223,6 +227,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "final/pex/app/evaluator/RunProgram.java",
+			"settings":
+			{
+				"buffer_size": 910,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -268,20 +280,38 @@
 		"/home/anfifo/Documents/PO/ProjPO/final",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal"
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression"
 	],
 	"file_history":
 	[
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/ExpressionEvaluateVisitor.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/ExpressionEvaluateVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/BinaryExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Add.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/makefile",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Program.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator/RunProgram.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/test.tex",
+		"/home/anfifo/Documents/PO/ProjPO/final/prim.tex",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator/AddExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Expression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression/TernaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/UnaryExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/CompositeExpression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Identifier.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/StringLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/Literal.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/IntegerLiteral.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadS.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadI.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Print.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Not.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Neg.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Call.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/And.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Div.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Eq.java",
@@ -297,25 +327,13 @@
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Sub.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/While.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression/If.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Call.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Neg.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/Not.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Print.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadI.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ReadS.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/IntegerLiteral.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/StringLiteral.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Identifier.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Expression.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/ExpressionVisitor.java",
+		"/home/anfifo/Documents/SO/tests/pipeout.c",
+		"/home/anfifo/Documents/SO/tests/pipein.c",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionEvaluateVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/InterpreterHandler.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Interpreter.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/ternaryexpression/TernaryExpression.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/UnaryExpression.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Program.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Save.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Open.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/New.java",
@@ -333,7 +351,6 @@
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/ReadI.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Print.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/variadicexpression/Seq.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/prim.tex",
 		"/home/anfifo/Documents/PO/ProjPO/final/runtests.sh",
 		"/home/anfifo/Desktop/Test.java",
 		"/home/anfifo/Desktop/java",
@@ -396,22 +413,11 @@
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Mod.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Mul.java",
 		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Ne.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Or.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Set.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/MainMenu.java",
-		"/home/anfifo/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
-		"/home/anfifo/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/AddExpression.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/make",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/CompositeExpression.Java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/main/Message.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Readi.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/Reads.java",
-		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/app/evaluator/ProgramCommand.java"
+		"/home/anfifo/Documents/PO/ProjPO/intermedia/pex/core/expression/compositeexpression/binaryexpression/Or.java"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -422,9 +428,15 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"exec",
+			"exe",
+			"expression",
+			"void",
+			"\n",
+			"expression",
 			"abstract",
 			"void",
 			"{\n\n	}",
@@ -509,14 +521,45 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "final/pex/app/evaluator/RunProgram.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 910,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
