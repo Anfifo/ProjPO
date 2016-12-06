@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"iden",
+				"_identifiersMap"
+			],
+			[
+				"_i",
+				"_identifiersMap"
+			],
+			[
 				"in",
 				"IntegerLiteral"
 			],
@@ -46,10 +54,6 @@
 			[
 				"Inter",
 				"InterpreterHandler"
-			],
-			[
-				"_i",
-				"_initialized"
 			],
 			[
 				"i",
@@ -227,14 +231,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "final/pex/app/evaluator/RunProgram.java",
-			"settings":
-			{
-				"buffer_size": 910,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -280,19 +276,20 @@
 		"/home/anfifo/Documents/PO/ProjPO/final",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression"
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression"
 	],
 	"file_history":
 	[
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Identifier.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/makefile",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Interpreter.java",
+		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator/RunProgram.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/ExpressionEvaluateVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/ExpressionEvaluateVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/BinaryExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/binaryexpression/Add.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/makefile",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Program.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator/RunProgram.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/test.tex",
 		"/home/anfifo/Documents/PO/ProjPO/final/prim.tex",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/evaluator/AddExpression.java",
@@ -301,7 +298,6 @@
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/unaryexpression/UnaryExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/variadicexpression/VariadicExpression.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/compositeexpression/CompositeExpression.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/Identifier.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/StringLiteral.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/Literal.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/literal/IntegerLiteral.java",
@@ -333,7 +329,6 @@
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionEvaluateVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/expression/ExpressionVisitor.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/InterpreterHandler.java",
-		"/home/anfifo/Documents/PO/ProjPO/final/pex/core/Interpreter.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Save.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/Open.java",
 		"/home/anfifo/Documents/PO/ProjPO/final/pex/app/main/New.java",
@@ -431,6 +426,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"add",
 			"exec",
 			"exe",
 			"expression",
@@ -527,39 +523,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "final/pex/app/evaluator/RunProgram.java",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 910,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								154,
-								154
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -620,6 +585,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/Documents/SO/projSO.sublime-project"
+			]
 		],
 		"width": 380.0
 	},

@@ -57,7 +57,7 @@ public class Identifier extends Expression{
 	 * returns the value the identifier represents.
 	 * @return the value the identifier represents.
 	 */
-	public Literal getIdentifierValue(){
+	public Literal getValue(){
 		return _value;
 	}
 
@@ -67,7 +67,7 @@ public class Identifier extends Expression{
 	 * changed the value of the identifier holds/represents.
 	 * @param value the new value to be associated to the identifier.
 	 */
-	public void setIdentifierValue(Literal value){
+	public void setValue(Literal value){
 		_value = value;
 	}
 

@@ -39,6 +39,11 @@ public class Interpreter implements java.io.Serializable{
 	 * A map/table of all used identifiers in the programs.
 	 */
 	private Map<String, Identifier> _identifiersMap;
+
+	/**
+	 * a map of all initialized identifiers in the running program.
+	 */
+	private Map<String, Identifier> _initializedIdentifiers;
 	
 	/**
 	 * the app under which the interpreter works.
@@ -58,7 +63,8 @@ public class Interpreter implements java.io.Serializable{
 	public Interpreter (AppIO app){
 		_app = app;
 		_programList = new HashMap<String, Program>();
-		_identifiersMap = new HashMap<String, Identifier>();
+		_identifiersMap = new TreeMap<String, Identifier>();
+		_initializedIdentifiers = new TreeMap<String, Identifier>();
 		_changedFlag = true;
 	}
 
@@ -74,10 +80,10 @@ public class Interpreter implements java.io.Serializable{
 	public void setIdentifierValue(Identifier id, Literal value){
 		_changedFlag = true;
 
-		if(_identifiersMap.get(id.getAsText()) == null)
-			_identifiersMap.put(id.getAsText(), id);
-		
-		_identifiersMap.get(id.getAsText()).setIdentifierValue(value);
+		id.setValue(value);
+
+		_identifiersMap.put(id.getAsText(), id);
+		_initializedIdentifiers.put(id.getAsText(), id);
 	}	
 
 
@@ -89,7 +95,7 @@ public class Interpreter implements java.io.Serializable{
 	 * @return    value of given Indentifier
 	 */
 	public Literal getIdentifierValue(Identifier id){
-		return _identifiersMap.get(id.getAsText()).getIdentifierValue();
+		return _identifiersMap.get(id.getAsText()).getValue();
 	}
 
 
