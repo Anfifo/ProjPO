@@ -10,7 +10,7 @@ import pex.core.expression.compositeexpression.ternaryexpression.*;
 import pex.core.expression.compositeexpression.variadicexpression.*;
 
 public class ExpressionEvaluateVisitor implements ExpressionVisitor{
-	
+
 	public ExpressionEvaluateVisitor(){
 
 	}
@@ -22,17 +22,18 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 	}
 
 	public Literal visit(And expression){
+
 		return null;
 	}
 
 	public Literal visit(Div expression){
-		return null;
 
+		return null;
 	}
 
 	public Literal visit(Eq expression){
-		return null;
 
+		return null;
 	}
 
 	public Literal visit(Ge expression){
@@ -142,7 +143,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 	public Literal visit(StringLiteral expression){
 		return null;
-		
+
 	}
 
 }
