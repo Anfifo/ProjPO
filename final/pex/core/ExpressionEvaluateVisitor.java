@@ -272,10 +272,10 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
 			Literal exp2;
 
-			if(exp1.intValue() == 0)
-			exp2 = expression.getSecondArgument().accept(this);
+			if(exp1.intValue() != 0)
+				exp2 = expression.getSecondArgument().accept(this);
 			else
-			exp2 = expression.getThirdArgument().accept(this);
+				exp2 = expression.getThirdArgument().accept(this);
 
 			return exp2;
 		}
@@ -345,7 +345,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 		for(Expression exp : expression.getArguments()){
 			value = exp.accept(this);
 			try{
-				app.println( ((IntegerLiteral)value).toString() );
+				app.println( ((IntegerLiteral)value).getAsText() );
 			}
 
 			catch(ClassCastException cce){
@@ -392,7 +392,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Identifier expression) {
-		return expression.getValue();
+
+		Literal value = expression.getInterpreter().getIdentifierValue(expression);
+		if(value != null)
+			return value;
+		else
+			return new IntegerLiteral(0);
+
 	}
 
 

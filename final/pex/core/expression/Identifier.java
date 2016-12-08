@@ -3,7 +3,7 @@ package pex.core.expression;
 /**
  * Identifier Class<p>
  * An identifier represents a pair of name and value. It associates a Literal value to an Id.
- * 
+ *
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -13,6 +13,7 @@ package pex.core.expression;
 import pex.core.expression.literal.Literal;
 import java.util.*;
 import pex.core.ExpressionVisitor;
+import pex.core.Interpreter;
 
 
 public class Identifier extends Expression{
@@ -21,10 +22,19 @@ public class Identifier extends Expression{
 	 */
 	private String _name;
 
+
+
 	/**
 	 * the value held by this identifier. FIXME:Undefined when not initialized?
 	 */
 	private Literal _value;
+
+
+
+	/**
+	 * interpreter used to access the current identifiers list
+	 */
+	private Interpreter _interpreter;
 
 
 
@@ -38,6 +48,23 @@ public class Identifier extends Expression{
 	}
 
 
+	/**
+	 * constructor with interpreter
+	 * @param  String      name          Identifier's unique ID
+	 * @param  Interpreter interpreter   the interpreter which the identifier is linked to
+	 */
+	public Identifier(String name, Interpreter interpreter){
+		_name = name;
+		_interpreter = interpreter;
+	}
+
+	/**
+	 * returns the identifier attribute
+	 * @return the identifier
+	 */
+	public Interpreter getInterpreter(){
+		return _interpreter;
+	}
 
 
 	/**

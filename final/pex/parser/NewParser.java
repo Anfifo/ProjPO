@@ -98,7 +98,7 @@ public class NewParser {
                 return new StringLiteral(_tokenizer.sval);
 
             case StreamTokenizer.TT_WORD:
-                return new Identifier(_tokenizer.sval);
+                return new Identifier(_tokenizer.sval, _program.getInterpreter());
 
             case '(':
                 Expression exp = parseCompositeExpression();
