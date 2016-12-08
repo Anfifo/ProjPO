@@ -250,8 +250,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Seq expression){
-		return null;
 
+		Literal value = new IntegerLiteral(0);
+
+		for(Expression exp : expression.getArguments()){
+			value = exp.accept(this);
+		}
+		return value;
 	}
 
 
@@ -259,8 +264,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(ReadI expression){
-		return null;
-
+		return new IntegerLiteral(expression.getAppIO().readInteger());
 	}
 
 
@@ -268,8 +272,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(ReadS expression){
-		return null;
-
+		return new StringLiteral(expression.getAppIO().readString());
 	}
 
 

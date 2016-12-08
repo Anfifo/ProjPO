@@ -7,6 +7,9 @@ run:
 test:
 	chmod +x runtests.sh ; xterm -e ./runtests.sh
 
+compilet:
+	make; make clean
+
 tests:
 	./runtests.sh
 
