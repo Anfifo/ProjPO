@@ -23,213 +23,321 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 	}
 
 
-
-
-	public Literal visit(Add expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return new IntegerLiteral(exp1.intValue() + exp2.intValue());
-	}
-
-
-
-
-	public Literal visit(And expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-
-		if(exp1.intValue() != 0){
+	public Literal visit(Add expression) throws BadArgumentException{
+		try{
 			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-			return new IntegerLiteral(exp2.intValue());
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			return new IntegerLiteral(exp1.intValue() + exp2.intValue());
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(And expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+
+			if(exp1.intValue() != 0){
+				IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+				return new IntegerLiteral(exp2.intValue());
+			}
+			return new IntegerLiteral(0);
 		}
 
-		return new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Div expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return new IntegerLiteral(exp1.intValue()/exp2.intValue());
-	}
-
-
-
-
-	public Literal visit(Eq expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() == exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Ge expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() >= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Gt expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() > exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Le expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() <= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Lt expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() < exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Mod expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return new IntegerLiteral(exp1.intValue() % exp2.intValue());
-	}
-
-
-
-
-	public Literal visit(Mul expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return new IntegerLiteral (exp1.intValue() * exp2.intValue());
-	}
-
-
-
-
-
-	public Literal visit(Ne expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return exp1.intValue() != exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-
-	public Literal visit(Or expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return (exp1.intValue() != 0 || exp2.intValue() != 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
-	}
-
-
-
-
-	public Literal visit(Set expression){
-		Identifier id = (Identifier) expression.getFirstArgument();
-		Literal value = expression.getSecondArgument().accept(this);
-		expression.getInterpreter().setIdentifierValue(id, value);
-
-		return value;
-	}
-
-
-
-
-	public Literal visit(Sub expression){
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
-
-		return new IntegerLiteral (exp1.intValue() - exp2.intValue());
-	}
-
-
-
-
-	public Literal visit(While expression){
-		IntegerLiteral exp1 = (IntegerLiteral) expression.getFirstArgument().accept(this);
-
-		while(exp1.intValue() != 0){
-			expression.getFirstArgument().accept(this);
-			exp1 = (IntegerLiteral) expression.getSecondArgument().accept(this);
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
 		}
-		return new IntegerLiteral(0);
 	}
 
 
 
 
-	public Literal visit(If expression){
+	public Literal visit(Div expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
 
-		IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-		Literal exp2;
+			return new IntegerLiteral(exp1.intValue()/exp2.intValue());
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
 
-		if(exp1.intValue() == 0)
+
+
+
+	public Literal visit(Eq expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() == exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Ge expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() >= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Gt expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() > exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Le expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() <= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Lt expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() < exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Mod expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return new IntegerLiteral(exp1.intValue() % exp2.intValue());
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Mul expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return new IntegerLiteral (exp1.intValue() * exp2.intValue());
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+
+	public Literal visit(Ne expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return exp1.intValue() != exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+
+	public Literal visit(Or expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return (exp1.intValue() != 0 || exp2.intValue() != 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Set expression) throws BadArgumentException{
+		try{
+			Identifier id = (Identifier) expression.getFirstArgument();
+			Literal value = expression.getSecondArgument().accept(this);
+			expression.getInterpreter().setIdentifierValue(id, value);
+
+			return value;
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(Sub expression) throws BadArgumentException{
+		try{
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
+
+			return new IntegerLiteral (exp1.intValue() - exp2.intValue());
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+	public Literal visit(While expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral) expression.getFirstArgument().accept(this);
+
+			while(exp1.intValue() != 0){
+				expression.getFirstArgument().accept(this);
+				exp1 = (IntegerLiteral) expression.getSecondArgument().accept(this);
+			}
+			return new IntegerLiteral(0);
+		}
+
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
+	}
+
+
+
+
+
+	public Literal visit(If expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
+			Literal exp2;
+
+			if(exp1.intValue() == 0)
 			exp2 = expression.getSecondArgument().accept(this);
-		else
+			else
 			exp2 = expression.getThirdArgument().accept(this);
 
-		return exp2;
+			return exp2;
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
 	}
 
 
 
 
-	public Literal visit(Call expression){
-		StringLiteral name = (StringLiteral)expression.getArgument().accept(this);
-		Program program = expression.getInterpreter().getProgram(name.stringValue());
+	public Literal visit(Call expression) throws BadArgumentException{
+		try{
 
-		return program.execute();
+			StringLiteral name = (StringLiteral)expression.getArgument().accept(this);
+			Program program = expression.getInterpreter().getProgram(name.stringValue());
+
+			return program.execute();
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
 	}
 
 
 
 
-	public Literal visit(Neg expression){
-		IntegerLiteral exp1 = (IntegerLiteral) expression.getArgument().accept(this);
 
-		return new IntegerLiteral(0 - exp1.intValue());
+	public Literal visit(Neg expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral) expression.getArgument().accept(this);
+			return new IntegerLiteral(0 - exp1.intValue());
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
 	}
 
 
 
 
-	public Literal visit(Not expression){
-		IntegerLiteral exp1 = (IntegerLiteral) expression.getArgument().accept(this);
 
-		return (exp1.intValue() == 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
+	public Literal visit(Not expression) throws BadArgumentException{
+		try{
+
+			IntegerLiteral exp1 = (IntegerLiteral) expression.getArgument().accept(this);
+
+			return (exp1.intValue() == 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
+
+		}
+		catch(ClassCastException cce){
+			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+		}
 	}
 
 
 
 
-	public Literal visit(Print expression){
+	public Literal visit(Print expression) throws BadArgumentException{
 		AppIO app = expression.getAppIO();
 
 		Literal value = new IntegerLiteral(0);
@@ -239,8 +347,14 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			try{
 				app.println( ((IntegerLiteral)value).toString() );
 			}
+
 			catch(ClassCastException cce){
-				app.println( ((StringLiteral)value).stringValue() );
+				try{
+					app.println( ((StringLiteral)value).stringValue() );
+				}
+				catch(ClassCastException cce2){
+					throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+				}
 			}
 		}
 		return value;
@@ -249,13 +363,11 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(Seq expression){
-
+	public Literal visit(Seq expression) {
 		Literal value = new IntegerLiteral(0);
 
-		for(Expression exp : expression.getArguments()){
+		for(Expression exp : expression.getArguments())
 			value = exp.accept(this);
-		}
 		return value;
 	}
 
@@ -263,7 +375,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(ReadI expression){
+	public Literal visit(ReadI expression) {
 		return new IntegerLiteral(expression.getAppIO().readInteger());
 	}
 
@@ -271,7 +383,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(ReadS expression){
+	public Literal visit(ReadS expression) {
 		return new StringLiteral(expression.getAppIO().readString());
 	}
 
@@ -279,7 +391,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(Identifier expression){
+	public Literal visit(Identifier expression) {
 		return expression.getValue();
 	}
 
@@ -287,7 +399,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(IntegerLiteral expression){
+	public Literal visit(IntegerLiteral expression) {
 		return expression;
 
 	}
@@ -295,7 +407,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-	public Literal visit(StringLiteral expression){
+	public Literal visit(StringLiteral expression) throws BadArgumentException{
 		return expression;
 
 	}
