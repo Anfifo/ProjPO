@@ -2,8 +2,11 @@ package pex.app.evaluator;
 
 //FIXME import core classes
 import pex.core.Program;
-
+import pex.core.Interpreter;
+import pex.core.expression.Identifier;
 import pt.utl.ist.po.ui.Display;
+
+import java.util.*;
 
 /**
  * Show all program identifiers.
@@ -20,6 +23,20 @@ public class ShowAllIdentifiers extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        //FIXME implement
+        
+        Display display = new Display();
+
+        Interpreter interpreter = entity().getInterpreter();
+
+        Set<String> setIdentifiers = interpreter.getSetIdentifiers();
+    
+
+        for (String element : setIdentifiers) {
+            
+            display.add( element + "\n");
+
+        }
+
+        display.display();
     }
 }
