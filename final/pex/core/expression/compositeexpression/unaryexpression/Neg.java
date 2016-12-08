@@ -13,7 +13,7 @@ import pex.core.ExpressionVisitor;
 
 
 public class Neg extends UnaryExpression{
-	
+
 	/**
 	 * default Constructor
 	 * @param  exp1 first argument expression
@@ -31,15 +31,7 @@ public class Neg extends UnaryExpression{
 	}
 
 
-	/**
-	 * returns the literal that represents the Expression
-	 * @return the literal representation of the expression
-	 */
-	public Literal evaluate(){
-		return null; //FIXME needs implementation
-	}
 
-	
 	public Literal accept(ExpressionVisitor visitor){
 		return visitor.visit(this);
 	}

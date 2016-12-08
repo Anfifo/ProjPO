@@ -31,15 +31,6 @@ public class Not extends UnaryExpression{
 	}
 
 
-	/**
-	 * returns the literal that represents the Expression
-	 * @return the literal representation of the expression
-	 */
-	public Literal evaluate(){
-		return null; //FIXME needs implementation
-	}
-
-	
 	public Literal accept(ExpressionVisitor visitor){
 		return visitor.visit(this);
 	}
