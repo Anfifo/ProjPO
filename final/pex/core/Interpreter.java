@@ -87,6 +87,19 @@ public class Interpreter implements java.io.Serializable{
 	}	
 
 
+	/**
+	 * Set's Literal value to Identifier id in given Interpreter 
+	 * @param id    Identifier to which value will be given
+	 * @param value value to be given to the Identifier id
+	 */
+	public void setUninitializedIdent(Identifier id, Literal value){
+		_changedFlag = true;
+
+		id.setValue(value);
+
+		_identifiersMap.put(id.getAsText(), id);
+
+	}
 
 
 	/**
