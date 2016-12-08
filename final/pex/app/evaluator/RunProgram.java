@@ -17,7 +17,7 @@ import pex.core.expression.literal.IntegerLiteral;
  * Run program.
  */
 public class RunProgram extends ProgramCommand {
-  
+
     /**
      * @param receiver
      */
@@ -28,11 +28,6 @@ public class RunProgram extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-
-        IntegerLiteral value =(IntegerLiteral) entity().execute();
-
-        Display display = new Display();
-        display.add("O valor da execução do programa é: " + value.intValue());
-        display.display();
+        entity().execute();
     }
 }

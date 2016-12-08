@@ -24,6 +24,9 @@ public class If extends TernaryExpression{
 		super(exp1, exp2, exp3);
 	}
 
+
+
+
 	/**
 	 * returns the operator that represents this composite expression
 	 * @return the string representation
@@ -33,14 +36,14 @@ public class If extends TernaryExpression{
 	}
 
 
+
+
 	/**
-	 * returns the literal that represents the Expression
-	 * @return the literal representation of the expression
+	 * function allowing use of visitor pattern
+	 * @see ExpressionVisitor @ pex.core
+	 * @param  ExpressionVisitor visitor       the concrete visitor to be used
+	 * @return                   the value returned, if not needed return null
 	 */
-	public Literal evaluate(){
-		return null; //FIXME needs implementation
-	}
-	
 	public Literal accept(ExpressionVisitor visitor){
 		return visitor.visit(this);
 	}
