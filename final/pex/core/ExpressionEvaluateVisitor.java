@@ -5,11 +5,9 @@ import java.lang.ClassCastException;
 import pex.AppIO;
 import pex.core.Program;
 import pex.core.Interpreter;
+import pex.core.expression.literal.*;
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
-import pex.core.expression.literal.Literal;
-import pex.core.expression.literal.StringLiteral;
-import pex.core.expression.literal.IntegerLiteral;
 import pex.core.expression.compositeexpression.*;
 import pex.core.expression.compositeexpression.unaryexpression.*;
 import pex.core.expression.compositeexpression.binaryexpression.*;
@@ -22,7 +20,12 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 	}
 
-
+	/**
+	 * Evaluates an Add expression if it's arguments are valid
+	 * @param  Add                  expression    the expression that represents Add
+	 * @return                      the sum of both arguments/expresisons composing the Add
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Add expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
@@ -36,7 +39,14 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-
+	/**
+	 * Evaluates an And expression if it's arguments are valid
+	 * Evaluate to IntegerLiteral 1 if both arguments are diffferent from 0 or IntegerLiteral 0 if one at least one is 0
+	 * In case first Argument is equal to IntegerLiteral 0 the second argument won't be evaluated
+	 * @param  And                  expression    the expression that represents and
+	 * @return                      if first argument composing And has int value != 0 returns the evaluation of the second argument
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(And expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -55,7 +65,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-
+	/**
+	 * Evaluates Division expression if it's arguments are valid
+	 * Divides Div's first argument by Div's second argument returning an int value
+	 * @param  Div                  expression    the Div expression
+	 * @return                      the divison of Div's first argument by Div's second argument
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Div expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -70,7 +86,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-
+	/**
+	 * Evaluates Equal expression if it's arguments are valid
+	 * compares Eq's first argument with Eq's second argument returns 1 if they have equal values
+	 * @param  Eq                   expression    Eq's expression containing 2 argument expression
+	 * @return                      IntegerLiteral 1 if both arguments are equal else IntegerLiteral 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Eq expression) throws BadArgumentException{
 		try{
 
@@ -88,6 +110,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates GreaterOrEqual expression if it's arguments are valid
+	 * compares Ge's arguments, returning IntegerLiteral 1 if first is greater or equal than the second
+	 * @param  Ge                   expression    Ge's expression containing 2 argument expressions
+	 * @return                      IntegerLiteral 1 if first argument is greater or equal than second, else IntegerLiteral 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Ge expression) throws BadArgumentException{
 		try{
 
@@ -104,7 +133,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-
+	/**
+	 * Evaluates GreaterThan expression if it's arguments are valid
+	 * compare Gt's arguments, returning IntegerLiteral if first argument is greater than the second
+	 * @param  Gt                   expression    the Gt's expression containing 2 arguments expression
+	 * @return                      IntegerLiteral 1 if first argument is greater or qual than second, else IntegerLiteral 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Gt expression) throws BadArgumentException{
 		try{
 
@@ -120,7 +155,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
-
+	/**
+	 * Evaluates LesserThanOrEqual expression if it's arguments are valid
+	 * compare Le's arguments, returning IntegerLiteral if first argument is lesser or equal than the second
+	 * @param  Le                   expression    the Le's expression containing 2 arguments expression
+	 * @return                      IntegerLiteral 1 if first argument is less than or equal to second argument, else Integer 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Le expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -136,6 +177,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates LesserThan expression if it's arguments are valid
+	 * compare Lt's arguments, returning IntegerLiteral if first arguement value is lesser than the second
+	 * @param  Lt                   expression    the Lt's expression containing 2 arguments expression
+	 * @return                      IntegerLiteral 1 if first argument is lesser than the second argument, else Integer 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Lt expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -152,6 +200,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates Mod expression if it's arguments are valid
+	 * returns the mod of Mod's first argument and second argument
+	 * @param  Mod                  expression    the Mod expression containing 2 arguments expression
+	 * @return                      the IntegerLiteral with the value of the mod between the 2 arguments
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Mod expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -167,6 +222,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates Multiplication expresison if it's arguments are valid
+	 * returns the multiplication of Mul's first argument and Mul's second argument
+	 * @param  Mul                  expression   the Mul expression containing 2 arguments expression
+	 * @return                      the IntegerLiteral with the value of first argument's value multiplied by the second argument's value
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Mul expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -183,6 +245,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates NotEqual expression if it's arguments are valid
+	 * compares Ne's first expression with Ne's second expression value and returns zero IntegerLiteral if they're equal
+	 * @param  Ne                   expression    the Ne expression containing 2 arguments expression
+	 * @return                      IntegerLiteral 1 if first argument's value is different from second argument value, else IntegerLiteral 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Ne expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -199,6 +268,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates Or expression if it's arguments are valid
+	 * checks Or's 2 arguments and returns IntegerLiteral (1) if at least one of them is different from 0
+	 * @param  Or                   expression    the Or expression containing 2 arguments expression
+	 * @return                      IntegerLiteral 1 if at least one of the arguments is different from 0, and 0 if both are 0
+	 * @throws BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Or expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -214,6 +290,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 
+	/**
+	 * Evaluates Set expression if it's arguments are valid
+	 * set's to Identifier(Set's first argument) value to the given Literal (Set's Second argument)
+	 * @param  Set                  expression    the Set expression containing 2 argument expression
+	 * @return                      the value of the Set's second argument evaluation
+	 * @throws BadArgumentException
+	 */
 	public Literal visit(Set expression) throws BadArgumentException{
 		try{
 			Identifier id = (Identifier) expression.getFirstArgument();
@@ -341,22 +424,24 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 		AppIO app = expression.getAppIO();
 
 		Literal value = new IntegerLiteral(0);
+		String output = "";
 
 		for(Expression exp : expression.getArguments()){
 			value = exp.accept(this);
 			try{
-				app.println( ((IntegerLiteral)value).getAsText() );
+				output+=((IntegerLiteral)value).getAsText();
 			}
 
 			catch(ClassCastException cce){
 				try{
-					app.println( ((StringLiteral)value).stringValue() );
+					output+=((StringLiteral)value).stringValue();
 				}
 				catch(ClassCastException cce2){
 					throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
 				}
 			}
 		}
+		app.println(output);
 		return value;
 	}
 
