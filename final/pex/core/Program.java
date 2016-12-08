@@ -168,7 +168,13 @@ public class Program implements java.io.Serializable{
 		return _name;
 	}
 
-
+	/**
+	 * Returns this program's Expressions List.
+	 * @return List<Expression> expressions
+	 */
+	public List<Expression> getExpressions(){
+		return _expressions;
+	}
 
 
 	/**
