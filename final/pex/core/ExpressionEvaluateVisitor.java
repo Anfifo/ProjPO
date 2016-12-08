@@ -2,9 +2,14 @@ package pex.core;
 
 import java.lang.ClassCastException;
 
-import pex.core.expression.literal.*;
+import pex.AppIO;
+import pex.core.Program;
+import pex.core.Interpreter;
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
+import pex.core.expression.literal.Literal;
+import pex.core.expression.literal.StringLiteral;
+import pex.core.expression.literal.IntegerLiteral;
 import pex.core.expression.compositeexpression.*;
 import pex.core.expression.compositeexpression.unaryexpression.*;
 import pex.core.expression.compositeexpression.binaryexpression.*;
@@ -147,7 +152,11 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Set expression){
-		return null;
+		Identifier id = (Identifier) expression.getFirstArgument();
+		Literal value = expression.getSecondArgument().accept(this);
+		expression.getInterpreter().setIdentifierValue(id, value);
+
+		return value;
 	}
 
 
@@ -193,8 +202,10 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Call expression){
-		return null;
+		StringLiteral name = (StringLiteral)expression.getArgument().accept(this);
+		Program program = expression.getInterpreter().getProgram(name.stringValue());
 
+		return program.execute();
 	}
 
 
@@ -219,8 +230,20 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Print expression){
-		return null;
+		AppIO app = expression.getAppIO();
 
+		Literal value = new IntegerLiteral(0);
+
+		for(Expression exp : expression.getArguments()){
+			value = exp.accept(this);
+			try{
+				app.println( ((IntegerLiteral)value).toString() );
+			}
+			catch(ClassCastException cce){
+				app.println( ((StringLiteral)value).stringValue() );
+			}
+		}
+		return value;
 	}
 
 
@@ -254,8 +277,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(Identifier expression){
-		return null;
-
+		return expression.getValue();
 	}
 
 
@@ -271,7 +293,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(StringLiteral expression){
-		return null;
+		return expression;
 
 	}
 }
