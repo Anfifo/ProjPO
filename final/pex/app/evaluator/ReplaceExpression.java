@@ -32,9 +32,9 @@ public class ReplaceExpression extends ProgramCommand {
         InputInteger pos = new InputInteger (f, Message.requestPosition());
         InputString exp = new InputString (f, Message.requestExpression());
         f.parse();
-        
+
         try{
-            
+
             NewParser parser = new NewParser();
 
             int position = pos.value();
@@ -48,9 +48,9 @@ public class ReplaceExpression extends ProgramCommand {
 
             entity().replace(position, expression);
         }
-
-         catch(BadPositionException p){  }
-         catch(ParserException e){ throw new BadExpressionException(exp.value()); }
+         catch(ParserException e){
+             throw new BadExpressionException(exp.value());
+         }
     }
-    
+
 }

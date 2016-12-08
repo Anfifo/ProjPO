@@ -13,7 +13,7 @@ import pex.core.expression.compositeexpression.variadicexpression.*;
 
 public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 
-		private Interpreter _interpreter;	
+		private Interpreter _interpreter;
 
 
 	public ExpressionIdentifierVisitor(Interpreter interpretador){
@@ -22,9 +22,9 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 
 	}
 
-	
+
 	public Literal visit(Add expression){
-		
+
 		expression.getFirstArgument().accept(this);
 		expression.getSecondArgument().accept(this);
 
@@ -195,7 +195,7 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 		List<Expression> exps = expression.getArguments();
 
 		for (Expression expressao : exps) {
-			expressao.accept(this);			
+			expressao.accept(this);
 		}
 
 		return null;
@@ -207,7 +207,7 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 		List<Expression> exps = expression.getArguments();
 
 		for (Expression expressao : exps) {
-			expressao.accept(this);			
+			expressao.accept(this);
 		}
 
 		return null;
@@ -226,7 +226,7 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 
 	public Literal visit(Identifier expression){
 
-		_interpreter.setUninitializedIdent(expression, expression.getValue());
+		_interpreter.setUninitializedIdentifier(expression, expression.getValue());
 
 		return null;
 

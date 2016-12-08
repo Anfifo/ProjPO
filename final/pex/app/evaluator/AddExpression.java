@@ -23,23 +23,23 @@ public class AddExpression extends ProgramCommand {
     public AddExpression(Program receiver) {
         super(Label.ADD_EXPRESSION, receiver);
     }
-    
+
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws BadExpressionException, BadPositionException {
-        
+
         Form f = new Form();
         InputInteger pos = new InputInteger (f, Message.requestPosition());
         InputString exp = new InputString (f, Message.requestExpression());
         f.parse();
 
         try{
-            
+
             NewParser parser = new NewParser();
 
             int position = pos.value();
 
-            if ( position >= entity().getExpressions().size() || position < 0 ) {
+            if ( position > entity().getExpressions().size() || position < 0 ) {
                 throw new BadPositionException(position);
             }
 
@@ -47,8 +47,8 @@ public class AddExpression extends ProgramCommand {
 
             entity().add(position, expression);
         }
-
-         catch(BadPositionException p){  }
-         catch(ParserException e){ throw new BadExpressionException(exp.value()); }
+         catch(ParserException e){
+             throw new BadExpressionException(exp.value());
+         }
     }
 }

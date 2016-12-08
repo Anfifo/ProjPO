@@ -23,18 +23,11 @@ public class ShowAllIdentifiers extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        
+
         Display display = new Display();
 
-        Interpreter interpreter = entity().getInterpreter();
-
-        Set<String> setIdentifiers = interpreter.getSetIdentifiers();
-    
-
-        for (String element : setIdentifiers) {
-            
+        for (String element : entity().getIdentifiers()) {
             display.add( element + "\n");
-
         }
 
         display.display();

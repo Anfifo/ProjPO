@@ -26,23 +26,9 @@ public class ShowUninitializedIdentifiers extends ProgramCommand {
 
         Display display = new Display();
 
-        Interpreter interpreter = entity().getInterpreter();
-
-        Set<String> setIdentifiers = interpreter.getSetIdentifiers();
-        Set<String> setInitialized = interpreter.getSetInitialized();
-
-        for (String element : setInitialized) {
-            if (!setIdentifiers.add(element)) {
-                setIdentifiers.remove(element);
-            }
-        }
-
-        for (String element : setIdentifiers) {
-            
+        for (String element : entity().getUnitializedIdentifiers()) {
             display.add( element + "\n");
-
         }
-
         display.display();
     }
 }

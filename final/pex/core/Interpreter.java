@@ -5,7 +5,7 @@ package pex.core;
  * An interpreter is a computer program that directly executes expressions written in a programming language, without previously compiling them.<p>
  * An interpreter can hold 0 or more programs and is able to access and change them.<p>
  * An interpreter has a list of all identifiers (variables) used in it's programs with it's values associated and is able to access them.<p>
- * 
+ *
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -34,7 +34,7 @@ public class Interpreter implements java.io.Serializable{
 	 * A list of all programs that the interpreter holds.
 	 */
 	private Map<String, Program> _programList;
-	
+
 	/**
 	 * A map/table of all used identifiers in the programs.
 	 */
@@ -44,16 +44,18 @@ public class Interpreter implements java.io.Serializable{
 	 * a map of all initialized identifiers in the running program.
 	 */
 	private Map<String, Identifier> _initializedIdentifiers;
-	
+
 	/**
 	 * the app under which the interpreter works.
 	 */
 	private AppIO _app;
-	
+
 	/**
 	 * flag to keep track of interpreter's saved/unsaved status
 	 */
 	private boolean _changedFlag;
+
+
 
 
 	/**
@@ -68,26 +70,39 @@ public class Interpreter implements java.io.Serializable{
 		_changedFlag = true;
 	}
 
+
+
+
 	/**
 	*
 	* @return Set of keys of Identifiers Map
 	*/
-	public Set<String> getSetIdentifiers(){
+	public Set<String> getIdentifiersSet(){
 		return _identifiersMap.keySet();
 	}
+
+
+
+	public void resetIdentifiers(){
+		_identifiersMap.clear();
+		_initializedIdentifiers.clear();
+	}
+
 
 
 	/**
 	*
 	* @return Set of keys of initialized Identifiers Map
 	*/
-	public Set<String> getSetInitialized(){
+	public Set<String> getInitializedIdentifiersSet(){
 		return _initializedIdentifiers.keySet();
 	}
 
 
+
+
 	/**
-	 * Set's Literal value to Identifier id in given Interpreter 
+	 * Set's Literal value to Identifier id in given Interpreter
 	 * @param id    Identifier to which value will be given
 	 * @param value value to be given to the Identifier id
 	 */
@@ -98,15 +113,17 @@ public class Interpreter implements java.io.Serializable{
 
 		_identifiersMap.put(id.getAsText(), id);
 		_initializedIdentifiers.put(id.getAsText(), id);
-	}	
+	}
+
+
 
 
 	/**
-	 * Set's Literal value to Identifier id in given Interpreter 
+	 * Set's Literal value to Identifier id in given Interpreter
 	 * @param id    Identifier to which value will be given
 	 * @param value value to be given to the Identifier id
 	 */
-	public void setUninitializedIdent(Identifier id, Literal value){
+	public void setUninitializedIdentifier(Identifier id, Literal value){
 		_changedFlag = true;
 
 		id.setValue(value);
@@ -114,6 +131,8 @@ public class Interpreter implements java.io.Serializable{
 		_identifiersMap.put(id.getAsText(), id);
 
 	}
+
+
 
 
 	/**
@@ -156,6 +175,7 @@ public class Interpreter implements java.io.Serializable{
 
 
 
+
 	/**
 	 * gets the app which the interpreter was created on.
 	 * @return the app which the interpreter was created on
@@ -163,6 +183,7 @@ public class Interpreter implements java.io.Serializable{
 	public AppIO getAppIO(){
 		return _app;
 	}
+
 
 
 
@@ -180,7 +201,7 @@ public class Interpreter implements java.io.Serializable{
 
 			FileOutputStream fileStream = new FileOutputStream(name);
 			ObjectOutputStream out = new ObjectOutputStream(fileStream);
-			
+
 			out.writeObject(this);
 			out.close();
 			fileStream.close();

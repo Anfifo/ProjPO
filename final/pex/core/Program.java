@@ -113,20 +113,6 @@ public class Program implements java.io.Serializable{
 
 
 
-	/**
-	 * executes/runs program's code/expressions.
-	 * @return the literal that results of it's execution.
-	 */
-	public Literal execute(){
-		ExpressionVisitor visitor = new ExpressionEvaluateVisitor();
-
-		Literal result = new IntegerLiteral(0);
-
-		for(Expression exp : _expressions)
-			result = exp.accept(visitor);
-		return result;
-	}
-
 
 
 
@@ -198,4 +184,63 @@ public class Program implements java.io.Serializable{
 	    	throw fnf;
 	    }
 	}
+
+
+
+
+
+	/**
+	* executes/runs program's code/expressions.
+	* @return the literal that results of it's execution.
+	*/
+	public Literal execute(){
+		_interpreter.resetIdentifiers();
+
+		ExpressionVisitor visitor = new ExpressionEvaluateVisitor();
+
+		Literal result = new IntegerLiteral(0);
+
+		for(Expression exp : _expressions)
+		result = exp.accept(visitor);
+		return result;
+	}
+
+
+
+
+	public List<String> getIdentifiers(){
+		_interpreter.resetIdentifiers();
+
+		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
+
+		for(Expression exp : _expressions)
+			exp.accept(visitor);
+
+		return new ArrayList<String>(_interpreter.getIdentifiersSet());
+	}
+
+
+
+
+	public List<String> getUnitializedIdentifiers(){
+		_interpreter.resetIdentifiers();
+
+		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
+
+		for(Expression exp : _expressions)
+			exp.accept(visitor);
+
+		Set<String> identifiersSet = _interpreter.getIdentifiersSet();
+		Set<String> initializedSet = _interpreter.getInitializedIdentifiersSet();
+
+		List<String> temp = new ArrayList<String>();
+
+		for (String element : identifiersSet)
+			if (!initializedSet.contains(element))
+				temp.add(element);
+
+		return temp;
+	}
+
+
 }
