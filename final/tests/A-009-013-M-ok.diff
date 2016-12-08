@@ -1,0 +1,41 @@
+*** tests/A-009-013-M-ok.out	2016-12-05 13:13:09.000000000 +0000
+--- tests/A-009-013-M-ok.outhyp	2016-12-08 06:36:06.735651900 +0000
+***************
+*** 15,49 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+- Escolha uma opção: false
+- false
+- Menu de Edição
+- 1 - Listar programa
+- 2 - Executar programa
+- 3 - Adicionar expressão ao programa
+- 4 - Substituir expressão no programa
+- 5 - Mostrar os identificadores presentes no programa
+- 6 - Mostrar os identificadores do programa sem inicialização explícita
+- 0 - Sair
+- Escolha uma opção: (set b 5)
+- (set a (sub 2 3))
+- (if (not b) (print "true") (print "false"))
+- (if (not a) (print "true") (print "false"))
+- Menu de Edição
+- 1 - Listar programa
+- 2 - Executar programa
+- 3 - Adicionar expressão ao programa
+- 4 - Substituir expressão no programa
+- 5 - Mostrar os identificadores presentes no programa
+- 6 - Mostrar os identificadores do programa sem inicialização explícita
+- 0 - Sair
+- Escolha uma opção: Menu Principal
+- 1 - Criar
+- 2 - Abrir
+- 3 - Guardar
+- 4 - Criar Programa
+- 5 - Ler Programa
+- 6 - Escrever Programa
+- 7 - Manipular Programa
+- 0 - Sair
+  Escolha uma opção: 
+\ No newline at end of file
+--- 15,18 ----
