@@ -68,8 +68,22 @@ public class Interpreter implements java.io.Serializable{
 		_changedFlag = true;
 	}
 
+	/**
+	*
+	* @return Set of keys of Identifiers Map
+	*/
+	public Set<String> getSetIdentifiers(){
+		return _identifiersMap.keySet();
+	}
 
 
+	/**
+	*
+	* @return Set of keys of initialized Identifiers Map
+	*/
+	public Set<String> getSetInitialized(){
+		return _initializedIdentifiers.keySet();
+	}
 
 
 	/**
