@@ -12,18 +12,38 @@ package pex.core.expression.compositeexpression.binaryexpression;
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 import pex.core.ExpressionVisitor;
+import pex.core.Interpreter;
 
 
 public class Set extends BinaryExpression{
+	/**
+	 * attribute containing the identifiers which can be Set
+	 */
+	private Interpreter _interpreter;
+
+
 
 	/**
 	 * default Constructor
 	 * @param  exp1 first argument expression
 	 * @param  exp2 second argument expression
 	 */
-	public Set(Expression exp1, Expression exp2){
+	public Set(Expression exp1, Expression exp2, Interpreter interpreter){
 		super(exp1, exp2);
+		_interpreter = interpreter;
 	}
+
+
+
+	/**
+	* returns the interpreter attribute
+	* @return the interpreter attribute
+	*/
+	public Interpreter getInterpreter(){
+		return _interpreter;
+	}
+
+
 
 	/**
 	 * returns the operator that represents this composite expression
@@ -34,6 +54,7 @@ public class Set extends BinaryExpression{
 	}
 
 
+
 	/**
 	 * returns the literal that represents the Expression
 	 * @return the literal representation of the expression
@@ -42,8 +63,14 @@ public class Set extends BinaryExpression{
 		return null; //FIXME needs implementation
 	}
 
-	
 
+
+	/**
+	 * function allowing use of visitor pattern
+	 * @see ExpressionVisitor @ pex.core
+	 * @param  ExpressionVisitor visitor       the concrete visitor to be used
+	 * @return                   the value returned, if not needed return null
+	 */
 	public Literal accept(ExpressionVisitor visitor){
 		return visitor.visit(this);
 	}

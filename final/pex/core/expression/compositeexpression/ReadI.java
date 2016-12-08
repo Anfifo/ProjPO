@@ -10,13 +10,37 @@ package pex.core.expression.compositeexpression;
 import pex.core.expression.literal.Literal;
 import pex.core.expression.Expression;
 import pex.core.ExpressionVisitor;
+import pex.AppIO;
 
 
 public class ReadI extends CompositeExpression{
+	/**
+	 * The app containing the input reading methods needed
+	 */
+	private AppIO _app;
 
-	public ReadI(){
-		
+
+
+
+	/**
+	 * default constructor
+	 * @param  AppIO app           app with the input reading methods
+	 */
+	public ReadI(AppIO app){
+		_app = app;
 	}
+
+
+
+
+	/**
+	 * return the app that this class will use for input
+	 * @return the app the class uses
+	 */
+	public AppIO getAppIO(){
+		return _app;
+	}
+
 
 	/**
 	 * creates and returns the string representation of the class
@@ -27,15 +51,14 @@ public class ReadI extends CompositeExpression{
 	}
 
 
-	/**
-	 * returns the literal that represents the Expression
-	 * @return the literal representation of the expression
-	 */
-	public Literal evaluate(){
-		return null; //FIXME needs implementation
-	}
 
-	
+
+	/**
+	 * function allowing use of visitor pattern
+	 * @see ExpressionVisitor @ pex.core
+	 * @param  ExpressionVisitor visitor       the concrete visitor to be used
+	 * @return                   the value returned, if not needed return null
+	 */
 	public Literal accept(ExpressionVisitor visitor){
 		return visitor.visit(this);
 	}

@@ -5,7 +5,7 @@ package pex.core;
  * Representation of a program: a program is a series of coded expressions.<p>
  * A program has a name and the interpreter which it is related to.<p>
  * A program is able to execute and edit it's expressions.
- * 
+ *
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -25,7 +25,7 @@ import pex.core.expression.literal.StringLiteral;
 import pex.core.expression.literal.IntegerLiteral;
 
 public class Program implements java.io.Serializable{
-	
+
 	/**
 	 * A program's name is unique to a program, there can't be 2 programs with same name.
 	 */
@@ -67,7 +67,13 @@ public class Program implements java.io.Serializable{
 	}
 
 
-
+	/**
+	 * returns the interpreter attribute which holds the program
+	 * @return the interpreter attribute
+	 */
+	public Interpreter getInterpreter(){
+		return _interpreter;
+	}
 
 
 	/**

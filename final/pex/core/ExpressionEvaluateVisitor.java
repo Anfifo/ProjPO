@@ -164,8 +164,13 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 
 	public Literal visit(While expression){
-		return null;
+		IntegerLiteral exp1 = (IntegerLiteral) expression.getFirstArgument().accept(this);
 
+		while(exp1.intValue() != 0){
+			expression.getFirstArgument().accept(this);
+			exp1 = (IntegerLiteral) expression.getSecondArgument().accept(this);
+		}
+		return new IntegerLiteral(0);
 	}
 
 

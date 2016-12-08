@@ -3,7 +3,7 @@ package pex.parser;
 /**
  * NewParser Class <p>
  * Responsible for parsing input file into specific expression types.
- * 
+ *
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -45,10 +45,10 @@ public class NewParser {
         _tokenizer.eolIsSignificant(false);
     }
 
-    public Program parseFile(String fileName, String programName, InterpreterHandler interpreter ) throws BadSourceException, BadNumberException, InvalidExpressionException, 
+    public Program parseFile(String fileName, String programName, InterpreterHandler interpreter ) throws BadSourceException, BadNumberException, InvalidExpressionException,
                                                                                                   MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
 
-        Program _program = new Program(interpreter.getInterpreter(), programName);
+        _program = new Program(interpreter.getInterpreter(), programName);
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);
@@ -87,7 +87,7 @@ public class NewParser {
         switch (token) {
             case StreamTokenizer.TT_EOF:
                 return null;
-                
+
             case StreamTokenizer.TT_NUMBER: // Literal inteiro
                 if (_tokenizer.nval < 0 || _tokenizer.nval - (int)_tokenizer.nval != 0)
                     throw new BadNumberException("" + _tokenizer.nval);
@@ -113,7 +113,7 @@ public class NewParser {
 
         }
     }
-    
+
     // Return value cannot be null
     private Expression parseArgument() throws IOException, BadNumberException, UnknownOperationException,
                                               MissingClosingParenthesisException, EndOfInputException, InvalidExpressionException {
@@ -138,24 +138,24 @@ public class NewParser {
         // this depends on the specific code of each group
 
         switch (operatorName) {
-            
+
             // process no-args expressions
             case "reads":
-                return new ReadS(/* may need additional parameters */);
+                return new ReadS(_program.getInterpreter().getAppIO());
 
             case "readi":
-                return new ReadI(/* may need additional parameters */);
-              
+                return new ReadI(_program.getInterpreter().getAppIO());
+
              // processing unary expressions
             case "neg":
                 return new Neg(parseArgument());
 
             case "not":
                 return new Not(parseArgument());
-                
+
             case "call":
                 try {
-                    return new Call((StringLiteral)parseArgument() /* may need additional parameter */);
+                    return new Call((StringLiteral)parseArgument(), _program.getInterpreter());
                 } catch(ClassCastException cce) { // it is not a StringLiteral
                     throw new InvalidExpressionException(_tokenizer.lineno());
                 }
@@ -201,11 +201,11 @@ public class NewParser {
                  return new Or(parseArgument(), parseArgument());
 
              case "set":
-                 return new Set(parseArgument(), parseArgument() /* may need additional parameters */);
+                 return new Set(parseArgument(), parseArgument(), _program.getInterpreter());
 
              case "while":
                  return new While(parseArgument(), parseArgument());
-        
+
              // processing ternary expressions
              case "if":
                  return new If(parseArgument(), parseArgument(), parseArgument());
@@ -231,10 +231,10 @@ public class NewParser {
                  if (operatorName.equals("seq"))
                      return new Seq(args);
                  else
-                     return new Print(args /* may need additional parameters */);
-        
+                     return new Print(args,_program.getInterpreter().getAppIO());
+
              default:
                  throw new UnknownOperationException(_tokenizer.sval);
         }
-    }          
+    }
 }
