@@ -4,7 +4,7 @@ package pex.core.expression;
  *	Class Expression <p>
  *	An expression may represent a base expression like a Literal, which can be directly evaluated or a composite expression.
  *	A composite expression has an operator which may act upon more expressions. A Composite expression can be evaluated.
- * 
+ *
  * @author Grupo 31
  * @author Andre Fonseca 84698
  * @author Antonio Terra 84702
@@ -27,5 +27,11 @@ public abstract class Expression implements java.io.Serializable{
 	 * @return the result of it's execution.
 	 */
 
+	 /**
+ 	 * function allowing use of visitor pattern
+ 	 * @see ExpressionVisitor @ pex.core
+ 	 * @param  ExpressionVisitor visitor       the concrete visitor to be used
+ 	 * @return                   the value returned, if not needed return null
+ 	 */
 	public abstract Literal accept (ExpressionVisitor expressionVisitor);
 }
