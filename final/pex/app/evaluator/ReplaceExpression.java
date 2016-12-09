@@ -44,8 +44,10 @@ public class ReplaceExpression extends ProgramCommand {
                 throw new BadPositionException(position);
             }
 
+            if(exp.value()==null){
+                throw new BadExpressionException(exp.value());
+            }
             Expression expression = parser.parseString(exp.value(), entity());
-
             entity().replace(position, expression);
         }
          catch(ParserException e){

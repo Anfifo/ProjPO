@@ -4,8 +4,8 @@ package pex.app.evaluator;
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
 
-//FIXME import used core classes
 import pex.core.Program;
+import pex.core.BadArgumentException;
 
 import pex.core.expression.Expression;
 import pex.core.expression.Identifier;
@@ -28,6 +28,13 @@ public class RunProgram extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        entity().execute();
+        try{
+            entity().execute();
+        }
+        catch(BadArgumentException e){
+            Display display = new Display();
+            display.add("Erro na execução do programa: " + e.getMessage());
+            display.display();
+        }
     }
 }

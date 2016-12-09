@@ -1,5 +1,6 @@
 package pex.core;
 
+
 import java.lang.ClassCastException;
 
 import pex.AppIO;
@@ -13,6 +14,16 @@ import pex.core.expression.compositeexpression.unaryexpression.*;
 import pex.core.expression.compositeexpression.binaryexpression.*;
 import pex.core.expression.compositeexpression.ternaryexpression.*;
 import pex.core.expression.compositeexpression.variadicexpression.*;
+
+/**
+  * Implementation of Visitor Pattern <p>
+  * Evaluates each type of expression
+  *
+  * @author Grupo 31
+  * @author Andre Fonseca 84698
+  * @author Antonio Terra 84702
+  * @version 1.0
+ */
 
 public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
@@ -32,10 +43,10 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
 			return new IntegerLiteral(exp1.intValue() + exp2.intValue());
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
+
 
 
 
@@ -58,9 +69,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return new IntegerLiteral(0);
 		}
 
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -79,9 +89,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return new IntegerLiteral(exp1.intValue()/exp2.intValue());
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -102,9 +111,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return exp1.intValue() == exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -126,9 +134,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return exp1.intValue() >= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -148,9 +155,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return exp1.intValue() > exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -169,9 +175,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return exp1.intValue() <= exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -192,9 +197,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return exp1.intValue() < exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -214,9 +218,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return new IntegerLiteral(exp1.intValue() % exp2.intValue());
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -236,9 +239,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return new IntegerLiteral (exp1.intValue() * exp2.intValue());
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -259,9 +261,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return exp1.intValue() != exp2.intValue() ? new IntegerLiteral(1) : new IntegerLiteral(0);
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -282,9 +283,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return (exp1.intValue() != 0 || exp2.intValue() != 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -292,10 +292,10 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 	/**
 	 * Evaluates Set expression if it's arguments are valid
-	 * set's to Identifier(Set's first argument) value to the given Literal (Set's Second argument)
+	 * sets to Identifier(Set's first argument) value to the given Literal (Set's Second argument)
 	 * @param  Set                  expression    the Set expression containing 2 argument expression
 	 * @return                      the value of the Set's second argument evaluation
-	 * @throws BadArgumentException
+	 * @throws BadArgumentException if the first expression isn't an identifier (can't be casted to identifier).
 	 */
 	public Literal visit(Set expression) throws BadArgumentException{
 		try{
@@ -305,14 +305,20 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return value;
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
 
 
+	/**
+	 * Evaluates Subtraction expression if it's arguments are valid
+	 * subtracts Sub's first argument by Sub's second argument
+	 * @param  Sub                  expression    the Sub expression containing 2 argument expression
+	 * @return                      the value of subtracting first expression's value by the second expression's value
+	 * @throws BadArgumentException BadArgumentException in case one of the arguments isn't valid(cast-able to IntegerLiteral)
+	 */
 	public Literal visit(Sub expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
@@ -320,14 +326,20 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return new IntegerLiteral (exp1.intValue() - exp2.intValue());
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
 
-
+	/**
+	 * Evaluates While expression if it's arguments are valid
+	 * As long as While's first argument's value is different than 0 the second expression will be evaluated (Loop).
+	 * IMPORTANT: If the second expression does not change the first an infiinite loop may occur!
+	 * @param  While                expression    the While expression containing 2 argument expressions
+	 * @return                      returns the IntegerLiteral with value 0
+	 * @throws BadArgumentException if the first expression isn't an Integer Literal in every step of the loop
+	 */
 	public Literal visit(While expression) throws BadArgumentException{
 		try{
 
@@ -340,15 +352,20 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return new IntegerLiteral(0);
 		}
 
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
 
 
-
+	/**
+	 * Evaluates If expression if it's arguments are valid
+	 * If first expression value is different from 0 evaluates and returns first argument else evaluates and returns second argument
+	 * @param  If                   expression    the If expression containing 2 argument expressions
+	 * @return                      returns the Literal resulting from the argument
+	 * @throws BadArgumentException in case the first expression isn't an IntegerLiteral (valid argument for evaluation)
+	 */
 	public Literal visit(If expression) throws BadArgumentException{
 		try{
 
@@ -362,10 +379,10 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			return exp2;
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
+
 
 
 
@@ -379,10 +396,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return program.execute();
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
-	}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }	}
 
 
 
@@ -395,9 +409,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return new IntegerLiteral(0 - exp1.intValue());
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -412,9 +425,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			return (exp1.intValue() == 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
 
 		}
-		catch(ClassCastException cce){
-			throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
-		}
+		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
+		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
 	}
 
 
@@ -437,7 +449,7 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 					output+=((StringLiteral)value).stringValue();
 				}
 				catch(ClassCastException cce2){
-					throw new BadArgumentException("Invalid Arguments for" + expression.getOperator() + " operator");
+					throw new BadArgumentException(expression.getOperator() + " operator");
 				}
 			}
 		}
@@ -492,14 +504,12 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 	public Literal visit(IntegerLiteral expression) {
 		return expression;
-
 	}
 
 
 
 
-	public Literal visit(StringLiteral expression) throws BadArgumentException{
+	public Literal visit(StringLiteral expression) {
 		return expression;
-
 	}
 }

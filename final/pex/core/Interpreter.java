@@ -74,8 +74,8 @@ public class Interpreter implements java.io.Serializable{
 
 
 	/**
-	*
-	* @return Set of keys of Identifiers Map
+	* clones and returns the set of all identifiers
+	* @return Set of keys of Identifiers Map ordered alphabetically
 	*/
 	public Set<String> getIdentifiersSet(){
 		return _identifiersMap.keySet();
@@ -83,20 +83,27 @@ public class Interpreter implements java.io.Serializable{
 
 
 
-	public void resetIdentifiers(){
-		_identifiersMap.clear();
-		_initializedIdentifiers.clear();
+
+	/**
+	* clones and returns the set of all initialized Identifiers
+	* @return Set of keys of initialized Identifiers Map ordered alphabetically
+	*/
+	public Set<String> getInitializedIdentifiersSet(){
+		return _initializedIdentifiers.keySet();
 	}
 
 
 
 	/**
-	*
-	* @return Set of keys of initialized Identifiers Map
-	*/
-	public Set<String> getInitializedIdentifiersSet(){
-		return _initializedIdentifiers.keySet();
+	 * clears all the current Identifiers structures
+	 */
+	public void resetIdentifiers(){
+		_identifiersMap = new TreeMap<String, Identifier>();
+		_initializedIdentifiers = new TreeMap<String, Identifier>();
 	}
+
+
+
 
 
 

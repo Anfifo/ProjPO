@@ -82,7 +82,8 @@ public class Program implements java.io.Serializable{
 	 * @param expression expression to be added to given index.
 	 */
 	public void add(int idx, Expression expression){
-		_expressions.add(idx, expression);
+		if(expression != null)
+			_expressions.add(idx, expression);
 	}
 
 
@@ -121,12 +122,10 @@ public class Program implements java.io.Serializable{
 	 * @return the string representation of the program.
 	 */
 	public String getAsText(){
-		int size = _expressions.size();
 		String text = "";
-		int i;
 
-		for ( i = 0; i < size; i++)
-			text+=_expressions.get(i).getAsText()+"\n";
+		for (Expression expression : _expressions)
+			text+= expression.getAsText()+"\n";
 
 		return text;
 	}
@@ -202,28 +201,38 @@ public class Program implements java.io.Serializable{
 
 		for(Expression exp : _expressions)
 		result = exp.accept(visitor);
+
+		_interpreter.resetIdentifiers();
 		return result;
 	}
 
 
 
-
+	/**
+	 * Finds all the identifiers located in this program without evaluating it's expressions
+	 * @return a List with all the identifiers in this program ordered alphabetically.
+	 */
 	public List<String> getIdentifiers(){
-		_interpreter.resetIdentifiers();
 
 		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
 
 		for(Expression exp : _expressions)
 			exp.accept(visitor);
 
-		return new ArrayList<String>(_interpreter.getIdentifiersSet());
+		List<String> temp = new ArrayList<String>( _interpreter.getIdentifiersSet());
+
+		_interpreter.resetIdentifiers();
+		return temp;
 	}
 
 
 
 
+	/**
+	 * Finds all the identifiers in the program not implicitly initialized without evaluating it's expressions
+	 * @return a List ordered with all non initialized Identifiers alphabetically
+	 */
 	public List<String> getUnitializedIdentifiers(){
-		_interpreter.resetIdentifiers();
 
 		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
 
@@ -239,8 +248,8 @@ public class Program implements java.io.Serializable{
 			if (!initializedSet.contains(element))
 				temp.add(element);
 
+		_interpreter.resetIdentifiers();
 		return temp;
 	}
-
 
 }

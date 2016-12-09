@@ -45,10 +45,10 @@ public class AddExpression extends ProgramCommand {
 
             Expression expression = parser.parseString(exp.value(), entity());
 
-            entity().add(position, expression);
+            if(expression != null)
+                entity().add(position, expression);
         }
-         catch(ParserException e){
-             throw new BadExpressionException(exp.value());
-         }
+
+        catch(ParserException e){ throw new BadExpressionException(exp.value()); }
     }
 }
