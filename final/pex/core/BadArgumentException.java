@@ -12,7 +12,7 @@ public class BadArgumentException extends RuntimeException {
 
     public BadArgumentException(String error){
         super("Invalid Arguments: " + error);
-        _message = "Invalid Arguments" + error +" ";
+        _message = "Invalid Arguments: " + error +" ";
     }
 
     public String getMessage(){

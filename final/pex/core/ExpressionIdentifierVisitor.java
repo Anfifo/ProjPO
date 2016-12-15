@@ -133,7 +133,8 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 
 
 		_interpreter.setIdentifierValue( (Identifier) expression.getFirstArgument(), null);
-
+		expression.getSecondArgument().accept(this);
+		
 		return null;
 
 	}
@@ -226,7 +227,7 @@ public class ExpressionIdentifierVisitor implements ExpressionVisitor{
 
 	public Literal visit(Identifier expression){
 
-		_interpreter.setUninitializedIdentifier(expression, expression.getValue());
+		_interpreter.setUninitializedIdentifier(expression);
 
 		return null;
 

@@ -17,6 +17,7 @@ import pex.AppIO;
 import pex.core.Program;
 import pex.core.expression.Identifier;
 import pex.core.expression.literal.Literal;
+import pex.core.expression.literal.IntegerLiteral;
 
 import java.util.*;
 
@@ -130,10 +131,8 @@ public class Interpreter implements java.io.Serializable{
 	 * @param id    Identifier to which value will be given
 	 * @param value value to be given to the Identifier id
 	 */
-	public void setUninitializedIdentifier(Identifier id, Literal value){
+	public void setUninitializedIdentifier(Identifier id){
 		_changedFlag = true;
-
-		id.setValue(value);
 
 		_identifiersMap.put(id.getAsText(), id);
 
@@ -148,7 +147,10 @@ public class Interpreter implements java.io.Serializable{
 	 * @return    value of given Indentifier
 	 */
 	public Literal getIdentifierValue(Identifier id){
-		return _identifiersMap.get(id.getAsText()).getValue();
+		if (_initializedIdentifiers.containsKey(id.getAsText()))
+			return _identifiersMap.get(id.getAsText()).getValue();
+
+		return new IntegerLiteral (0);
 	}
 
 

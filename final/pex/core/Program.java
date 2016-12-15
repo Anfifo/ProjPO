@@ -193,16 +193,14 @@ public class Program implements java.io.Serializable{
 	* @return the literal that results of it's execution.
 	*/
 	public Literal execute(){
-		_interpreter.resetIdentifiers();
 
 		ExpressionVisitor visitor = new ExpressionEvaluateVisitor();
 
 		Literal result = new IntegerLiteral(0);
 
 		for(Expression exp : _expressions)
-		result = exp.accept(visitor);
+			result = exp.accept(visitor);
 
-		_interpreter.resetIdentifiers();
 		return result;
 	}
 
@@ -213,16 +211,14 @@ public class Program implements java.io.Serializable{
 	 * @return a List with all the identifiers in this program ordered alphabetically.
 	 */
 	public List<String> getIdentifiers(){
+		_interpreter.resetIdentifiers();
 
 		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
 
 		for(Expression exp : _expressions)
 			exp.accept(visitor);
 
-		List<String> temp = new ArrayList<String>( _interpreter.getIdentifiersSet());
-
-		_interpreter.resetIdentifiers();
-		return temp;
+		return new ArrayList<String>( _interpreter.getIdentifiersSet());
 	}
 
 
@@ -233,6 +229,7 @@ public class Program implements java.io.Serializable{
 	 * @return a List ordered with all non initialized Identifiers alphabetically
 	 */
 	public List<String> getUnitializedIdentifiers(){
+		_interpreter.resetIdentifiers();
 
 		ExpressionVisitor visitor = new ExpressionIdentifierVisitor(_interpreter);
 
@@ -248,7 +245,6 @@ public class Program implements java.io.Serializable{
 			if (!initializedSet.contains(element))
 				temp.add(element);
 
-		_interpreter.resetIdentifiers();
 		return temp;
 	}
 

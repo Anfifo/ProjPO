@@ -279,9 +279,11 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 	public Literal visit(Or expression) throws BadArgumentException{
 		try{
 			IntegerLiteral exp1 = (IntegerLiteral)expression.getFirstArgument().accept(this);
-			IntegerLiteral exp2 = (IntegerLiteral)expression.getSecondArgument().accept(this);
 
-			return (exp1.intValue() != 0 || exp2.intValue() != 0) ? new IntegerLiteral(1) : new IntegerLiteral(0);
+				if(exp1.intValue() == 0)
+					return (IntegerLiteral)expression.getSecondArgument().accept(this);
+				else
+					return new IntegerLiteral (1);
 		}
 		catch(ClassCastException cce){ throw new BadArgumentException(expression.getOperator() + " operator"); }
 		catch(BadArgumentException e){ throw new BadArgumentException(e.getMessage() + expression.getOperator() + " operator"); }
@@ -346,8 +348,8 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 			IntegerLiteral exp1 = (IntegerLiteral) expression.getFirstArgument().accept(this);
 
 			while(exp1.intValue() != 0){
-				expression.getFirstArgument().accept(this);
-				exp1 = (IntegerLiteral) expression.getSecondArgument().accept(this);
+				expression.getSecondArgument().accept(this);
+				exp1 = (IntegerLiteral) expression.getFirstArgument().accept(this);
 			}
 			return new IntegerLiteral(0);
 		}
@@ -392,6 +394,9 @@ public class ExpressionEvaluateVisitor implements ExpressionVisitor{
 
 			StringLiteral name = (StringLiteral)expression.getArgument().accept(this);
 			Program program = expression.getInterpreter().getProgram(name.stringValue());
+
+			if (program == null)
+				return new IntegerLiteral(0);
 
 			return program.execute();
 
